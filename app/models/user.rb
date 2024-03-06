@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :role, presence: true, inclusion: { in: %w(patient doctor)}
+
   scope :patient, -> { where("role = patient") }
   scope :doctor, -> { where("role = doctor") }
 end
