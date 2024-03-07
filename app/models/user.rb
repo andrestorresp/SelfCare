@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :sap, presence: true, if: :doctor?
 
-  validates :role, presence: true, inclusion: { in: %w(patient doctor)}
+  validates :role, presence: true, inclusion: { in: ['patient', 'doctor'] }
 
   scope :patient, -> { where("role = patient") }
   scope :doctor, -> { where("role = doctor") }
