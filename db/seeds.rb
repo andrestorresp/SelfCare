@@ -1,18 +1,22 @@
+Consultation.destroy_all
 Blog.destroy_all
-History.destroy_all
+Doctor.destroy_all
+Patient.destroy_all
 User.destroy_all
 
-alvaro = User.create!(
+=begin alvaro = User.create!(
   email: "alvarorg2111@gmail.com",
   password: "12345678",
-  role: "patient",
+  role: false,
   first_name: "Alvaro",
+  address: ""
   last_name: "Raga",
   age: 22,
   dni: 28154771,
   number_phone: "1234567890",
 )
 alvaro.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Alvaro.jpg'), filename: 'Perfil_Alvaro.jpg', content_type: 'image/jpeg')
+=end
 
 gabriel = User.create!(
   email: "alberto.manrique99@gmail.com",
@@ -24,10 +28,9 @@ gabriel = User.create!(
   dni: 26921249,
   number_phone: "04140176629",
 )
-alvaro.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Gabriel.jpg'), filename: 'Perfil_Gabriel.jpg', content_type: 'image/jpeg')
+gabriel.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Gabriel.jpg'), filename: 'Perfil_Gabriel.jpg', content_type: 'image/jpeg')
 
-
-leonardo = User.create!(
+=begin leonardo = User.create!(
   email: "leonardocabrices1@gmail.com",
   password: "12345678",
   role: "doctor",
@@ -47,10 +50,11 @@ andres = User.create!(
   role: "doctor",
   first_name: "Andres",
   last_name: "Torres",
-  age: 28,
+  age: 27,
   dni: 25562969,
   sap: 23456789,
   number_phone: "1122334455",
   specialty: "Cirugia"
 )
-leonardo.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Andres.jpg'), filename: 'Perfil_Andres.jpg', content_type: 'image/jpeg')
+andres.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Andres.jpg'), filename: 'Perfil_Andres.jpg', content_type: 'image/jpeg')
+ =end
