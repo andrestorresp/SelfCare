@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :sap, presence: true, if: :is_doctor?
+  validates :sap, presence: true, if: :doctor?
 
   validates :role, presence: true, inclusion: { in: %w(patient doctor)}
 
@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   private
 
-  def is_doctor?
+  def doctor?
     role == 'doctor'
   end
 end
