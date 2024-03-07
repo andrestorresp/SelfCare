@@ -2,7 +2,6 @@ Blog.destroy_all
 History.destroy_all
 User.destroy_all
 
-
 alvaro = User.create!(
   email: "alvarorg2111@gmail.com",
   password: "12345678",
@@ -14,7 +13,6 @@ alvaro = User.create!(
   number_phone: "1234567890",
 )
 alvaro.photo.attach(io: File.open('app/assets/images/perfiles/Perfil_Alvaro.jpg'), filename: 'Perfil_Alvaro.jpg', content_type: 'image/jpeg')
-
 
 gabriel = User.create!(
   email: "alberto.manrique99@gmail.com",
