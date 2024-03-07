@@ -76,5 +76,4 @@ group :test do
   gem "selenium-webdriver"
 end
 gem "cloudinary"
-gem "dotenv-rails"
 gem "pg_search"
