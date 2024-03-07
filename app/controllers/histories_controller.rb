@@ -1,3 +1,3 @@
-class HistoriesController < ApplicationController
-  
+class HistorysController < ApplicationController
+
 end
