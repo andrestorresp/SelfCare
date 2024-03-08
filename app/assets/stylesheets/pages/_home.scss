@@ -1,1 +1,99 @@
-// Specific CSS for your home-page
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #030b0d;
+  display: grid;
+  place-items: center;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.card-2-container {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que las tarjetas se envuelvan en filas */
+  justify-content: center;
+}
+
+.card-2 {
+  flex: 1;
+  width: 400px;
+  margin-right: 11px;
+  aspect-ratio: 1 / 0.7;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.card-2 .image-box {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.card-2 .image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 90%;
+  border-radius: inherit;
+  transition: 0.5s ease-in-out;
+}
+
+.card-2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid white;
+  border-radius: inherit;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.card-2:hover img {
+  filter: grayscale(1) brightness(0.4);
+}
+.card-2:hover::after {
+  opacity: 1;
+  inset: 18px 20px 20px 20px;
+}
+
+.content {
+  width: 80%;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.content h2,
+.content p {
+  opacity: 0;
+  transition: 0.4s 0.2s ease;
+}
+.content h2 {
+  margin-bottom: 12px;
+  scale: 0.7;
+}
+.content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d1d1d1;
+  transform: translateY(50%);
+}
+.card-2:hover .content h2 {
+  scale: 1;
+  opacity: 1;
+}
+.card-2:hover .content P {
+  opacity: 1;
+  transform: translateY(0);
+}
