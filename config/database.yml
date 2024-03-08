@@ -52,7 +52,7 @@ development:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+# Do not set this db to the same as development or doctorion.
 test:
   <<: *default
   database: selfcare_test
@@ -71,14 +71,14 @@ test:
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
+#   doctorion:
 #     url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
+doctorion:
   <<: *default
-  database: selfcare_production
+  database: selfcare_doctorion
   username: selfcare
   password: <%= ENV["SELFCARE_DATABASE_PASSWORD"] %>
