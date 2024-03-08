@@ -6,26 +6,27 @@ User.destroy_all
 
 def crear_usuario(email, password, role, first_name, last_name, address, latitude, longitude, dni, phone_number, age, photo_path)
   usuario = User.new(
-    email,
-    password,
-    role,
-    first_name,
-    last_name,
-    address,
-    latitude,
-    longitude,
-    dni,
-    phone_number,
-    age
+    email: email,
+    password: password,
+    role: role,
+    first_name: first_name,
+    last_name: last_name,
+    address: address,
+    latitude: latitude,
+    longitude: longitude,
+    dni: dni,
+    phone_number: phone_number,
+    age: age
   )
   usuario.photo.attach(io: File.open(photo_path), filename: File.basename(photo_path), content_type: 'image/jpeg')
 
-  if usuario.save!
+  if usuario.save
     puts "#{first_name} insertado correctamente"
   else
     puts "Error al insertar #{first_name}"
   end
 end
+
 
 # Creación de Usuarios
 crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
@@ -58,8 +59,8 @@ crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "
 def creacion_doctor(specialty, sap)
   last_two_user_ids = User.order(id: :desc).limit(2).pluck(:id)
   doctor = Doctor.new(
-    specialty,
-    sap,
+    specialty: specialty,
+    sap: sap,
     user_id: last_two_user_ids.sample
   )
   if doctor.save
@@ -113,8 +114,8 @@ blog4.photo.attach(io: File.open('app/assets/images/blogs/Salud_Mental.jpg'), fi
 puts "Blog 4 creado correctamente"
 
 def creacion_consultations(diagnostic)
-  Consultation.create!(
-    diagnostic,
+  consultation = Consultation.new(
+    diagnostic: diagnostic,
     patient_id: Patient.pluck(:id).sample,
     doctor_id: Doctor.pluck(:id).sample
   )
