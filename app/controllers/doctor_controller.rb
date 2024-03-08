@@ -1,14 +1,10 @@
 class DoctorController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_doctor, only: :destroy
-  # before_action :set_doctor, only: %i[new create]
+  before_action :set_doctor, only: %i[destroy show edit update]
 
   def index
     @doctors = doctor.all
-    # if params[:query].present?
-    #  @doctors = Doctor.doctor_search(params[:query])
-    # end
   end
 
   def new
@@ -16,7 +12,6 @@ class DoctorController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find(params[:id])
     @consultations = consultations.new
   end
 
@@ -30,13 +25,9 @@ class DoctorController < ApplicationController
     end
   end
 
-  def edit
-    @doctor = Doctor.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @doctor = Doctor.find(params[:id])
-
     if @doctor.update(doctor_params)
       redirect_to doctor_path(@doctor), notice: 'doctor actualizado exitosamente.'
     else
@@ -52,7 +43,7 @@ class DoctorController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name) # terminar de anexar lo que falta dentro de permit
+    params.require(:doctor).permit(:sap, :specialty)
   end
 
   def set_doctor
