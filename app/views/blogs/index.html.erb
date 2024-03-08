@@ -1,0 +1,11 @@
+<!-- app/views/blogs/index.html.erb -->
+
+<h1>Lista de Blogs</h1>
+
+<% @blogs.each do |blog| %>
+  <div class="blog">
+    <h2><%= blog.title %></h2>
+    <p><%= blog.comment %></p>
+    <!-- Aquí puedes agregar más información del blog si lo deseas -->
+  </div>
+<% end %>
