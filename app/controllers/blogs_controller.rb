@@ -25,11 +25,10 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
+    @blog.user = current_user
     if @blog.save
       redirect_to blogs_path
     else
-      binding.pry # Esto detendrá la ejecución del código aquí
       render :new, status: :unprocessable_entity
     end
   end
