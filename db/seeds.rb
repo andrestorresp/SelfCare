@@ -23,14 +23,14 @@ def crear_usuario(email, password, role, first_name, last_name, address, latitud
   if usuario.save
     puts "#{first_name} insertado correctamente"
   else
-    puts "Error al insertar #{first_name}"
+    puts "Error al insertar #{first_name}: #{usuario.errors.full_messages}"
   end
 end
 
-
 # Creación de Usuarios
 crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
-crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859087233048, -66.99928460600289, 26921249, "04140176629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
+crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
+crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriesl", "Manrfique", "Monte Bello Plaza", 10.368594087233048, -66.995928460600289, 28921248, "04140156628", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
 
 # Creación de los pacientes
 
