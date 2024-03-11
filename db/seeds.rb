@@ -124,6 +124,12 @@ def creacion_consultations(diagnostic)
   else
     puts "¡Error al crear el diagnóstico!"
   end
+
+  # rails console
+  Flat.create(address: "16 Villa Gaudelet, Paris", name: "Le Wagon HQ")
+  # rails console
+  Flat.near("Tour Eiffel", 10)   # flats within 10 km of Tour Eiffel
+  Flat.near([40.71, 100.23], 20) # flats within 20 km of a point
 end
 
 creacion_consultations("Lesión en el tobillo derecho.")
