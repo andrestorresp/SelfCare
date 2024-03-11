@@ -27,8 +27,9 @@
             <% @consultations.each do |consultation| %>
               <li class="list-group-item">
                 <p><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></p>
+                <p><strong>Fecha del diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></p>
                 <p><strong>Doctor:</strong> <%= consultation.doctor.full_name %></p>
-                <!-- Agrega más detalles de la consulta según sea necesario -->
+                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
               </li>
             <% end %>
           </ul>

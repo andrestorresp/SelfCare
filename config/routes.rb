@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :patients
   resources :doctors do
-    resources :consultations, only: %i[new create]
+    resources :consultations, only: %i[new create edit update]
   end
   resources :blogs
   resources :consultations, except: %i[new create]
