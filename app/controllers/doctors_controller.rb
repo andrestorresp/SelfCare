@@ -1,10 +1,10 @@
-class DoctorController < ApplicationController
+class DoctorsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :index
   before_action :set_doctor, only: %i[destroy show edit update]
 
   def index
-    @doctors = doctor.all
+    @doctors = Doctor.all
   end
 
   def new
