@@ -18,10 +18,13 @@ class PatientsController < ApplicationController
     @user = User.find(@patient.user_id) # Encuentra el usuario asociado al paciente
     @consultations = @patient.consultations
     @doctors = @consultations.map(&:doctor)
+
     if current_user.role
-      @consultations = Consultation.where(patient_id: @patient.id)
+      @additional_consultations = Consultation.where(patient_id: @patient.id)
+      @consultations += @additional_consultations
     end
   end
+
 
 
   def new

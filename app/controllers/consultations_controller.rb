@@ -9,9 +9,29 @@ class ConsultationsController < ApplicationController
     @consultations = Consultation.find(params[:id])
   end
 
+  def new
+    @consultation = Consultation.new
+  end
+
   def create
+    @patient = Patient.find(params[:patient_id])
+    @doctor = current_user
+    @consultation = Consultation.new
+    @consultation.doctor_id = @doctor.id
+    @consultation.patient_id = @patient.id
+    @consultation.diagnostic = params[:consultation][:diagnostic]
+    if @consultation.save!
+      redirect_to patient_path(@patient)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
   end
+
+
+
+
+
 end
