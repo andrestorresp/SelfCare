@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :dni, :phone_number, uniqueness: true
   validates :dni, numericality: { only_integer: true }
   validates :age, numericality: { only_integer: true }
+  validates :photo, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
