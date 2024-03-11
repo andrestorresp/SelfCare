@@ -6,6 +6,7 @@ class ConsultationsController < ApplicationController
   end
 
   def edit
+    @consultations = Consultation.find(params[:id])
   end
 
   def create
