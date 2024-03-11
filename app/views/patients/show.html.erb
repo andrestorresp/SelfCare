@@ -1,0 +1,35 @@
+<div class="card" style="max-width: 500px;">
+  <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, class: "card-img-top profile-image rounded-top", style: "max-width: 200px; max-height: 200px; border-radius: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; margin: auto;" %>
+  <% end %>
+  <div class="card-body">
+    <h1 class="card-title text-center">Perfil del Paciente</h1>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Nombre:</strong> <%= @user.first_name %></li>
+      <li class="list-group-item"><strong>Apellido:</strong> <%= @user.last_name %></li>
+      <li class="list-group-item"><strong>Edad:</strong> <%= @user.age %></li>
+      <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
+      <li class="list-group-item"><strong>Número de teléfono:</strong> <%= @user.phone_number %></li>
+      <li class="list-group-item"><strong>Alergia:</strong> <%= @patient.alergy %></li>
+      <li class="list-group-item"><strong>Observación:</strong> <%= @patient.observation %></li>
+    </ul>
+  </div>
+
+  <div class="container">
+  <h1>Consultas del Paciente</h1>
+  <% if @consultations.any? %>
+    <ul class="list-group">
+      <% @consultations.each do |consultation| %>
+        <li class="list-group-item">
+          <p><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></p>
+          <p><strong>Doctor:</strong> <%= consultation.doctor.full_name %></p>
+          <!-- Agrega más detalles de la consulta según sea necesario -->
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No hay consultas para este paciente.</p>
+  <% end %>
+</div>
+
+</div>

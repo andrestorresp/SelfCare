@@ -14,10 +14,15 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @patient = Patient.find(params[:id]) # Busca el paciente
+    @user = User.find(@patient.user_id) # Encuentra el usuario asociado al paciente
+    @consultations = @patient.consultations
+    @doctors = @consultations.map(&:doctor)
     if current_user.role
-      @consultations = Consultation.where(patient_id: @patient)
+      @consultations = Consultation.where(patient_id: @patient.id)
     end
   end
+
 
   def new
     @patient = Patient.new
