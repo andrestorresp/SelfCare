@@ -22,22 +22,20 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    @blog.photo.attach(params[:blog][:photo]) if params[:blog][:photo].present?
     @blog.user = current_user
     if @blog.save
-      redirect_to blogs_path
+      redirect_to blog_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @blog = Blog.find(params[:id])
   end
 
   def update
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice: 'Blog actualizado exitosamente.'
+      redirect_to patient_path(@blog), notice: 'Blog actualizado exitosamente.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -51,7 +49,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:comment, :title, :photo)
+    params.require(:patient).permit(:comment, :title)
   end
 
   def set_blog
