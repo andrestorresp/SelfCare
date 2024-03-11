@@ -6,6 +6,9 @@
   <div class="blog">
     <h2><%= blog.title %></h2>
     <p><%= blog.comment %></p>
-    <!-- Aquí puedes agregar más información del blog si lo deseas -->
+
+    <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 300px; height: auto;' if blog.photo.present? %>
+
+    <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
   </div>
 <% end %>
