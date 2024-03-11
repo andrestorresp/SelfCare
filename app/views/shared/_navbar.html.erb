@@ -3,39 +3,30 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://www.selfcarecentral.com/cdn/shop/files/self_care_8_270x.png?v=1664827831", class: "imgnavbar"  %>
-    <% end %>
+    <div class="d-flex align-items-center">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://www.selfcarecentral.com/cdn/shop/files/self_care_8_270x.png?v=1664827831", class: "imgnavbar"  %>
+      <% end %>
+    </div>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto">
-        <%if user_signed_in?  %>
-            <li class="nav-item dropdown z-5">
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Editar perfil", edit_user_registration_path , class: "dropdown-item" %>
-                <%= link_to "Cerrar sesión", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
-              </div>
-            </li>
-        <% else  %>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown z-5">
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Editar perfil", edit_user_registration_path , class: "dropdown-item" %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
           <li class="nav-item active">
             <%= link_to "Iniciar sesión",  new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Registrarse",  new_user_registration_path , class: "nav-link" %>
           </li>
-        <% end  %>
+        <% end %>
       </ul>
-      <!--<-<form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      -->
     </div>
   </div>
 </nav>
-
-
-
-<!--
-
--->
