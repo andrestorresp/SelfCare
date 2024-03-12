@@ -47,21 +47,14 @@ def creacion_paciente(alergy, observation)
   end
 end
 
-# Creación de Pacientes
-creacion_paciente("Analgésicos antiinflamatorios no esteroides", "El paciente no debe de usar Analgésicos antiinflamatorios. Estos pueden causar irritación o daño en el revestimiento del estómago y el tracto gastrointestinal.")
-creacion_paciente("Penicilina", "Evita tomar cualquier medicamento que contenga penicilina u otros antibióticos relacionados sin consultar primero, puedes tener dificultades al resporar y reacciones alergicas")
-
-# Creación de Usuarios
-crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
-crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
-
 def creacion_doctor(specialty, sap)
-  last_two_user_ids = User.order(id: :desc).limit(2).pluck(:id)
+  last_user_id = User.order(id: :desc).pluck(:id).first
   doctor = Doctor.new(
     specialty: specialty,
     sap: sap,
-    user_id: last_two_user_ids.sample
+    user_id: last_user_id
   )
+
   if doctor.save
     puts "Doctor creado correctamente"
   else
@@ -69,8 +62,18 @@ def creacion_doctor(specialty, sap)
   end
 end
 
+# Creación de Pacientes
+creacion_paciente("Analgésicos antiinflamatorios no esteroides", "El paciente no debe de usar Analgésicos antiinflamatorios. Estos pueden causar irritación o daño en el revestimiento del estómago y el tracto gastrointestinal.")
+creacion_paciente("Penicilina", "Evita tomar cualquier medicamento que contenga penicilina u otros antibióticos relacionados sin consultar primero, puedes tener dificultades al resporar y reacciones alergicas")
+
+# Creación de Usuarios
+crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
 creacion_doctor("Traumatologo", "8190851")
+crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
 creacion_doctor("Pediatria", "6460253")
+
+
+
 
 blog1 = Blog.create!(
   comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
@@ -132,8 +135,8 @@ def creacion_consultations(diagnostic)
   Flat.near([40.71, 100.23], 20) # flats within 20 km of a point
 end
 
-creacion_consultations("Lesión en el tobillo derecho.")
-creacion_consultations("Dolor abdominal de origen desconocido.")
-creacion_consultations("Hipertensión arterial controlada.")
-creacion_consultations("Esguince cervical moderado.")
-creacion_consultations("Bronquitis aguda.")
+creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")
+creacion_consultations("El dolor abdominal de origen desconocido es un síntoma que puede presentarse por una variedad de razones y puede afectar a personas de todas las edades y géneros. Este tipo de dolor puede manifestarse de diferentes formas, como calambres, punzadas o sensaciones de presión en el área abdominal.")
+creacion_consultations("La hipertensión arterial controlada es una condición médica en la que la presión arterial se mantiene dentro de los límites normales mediante la implementación de cambios en el estilo de vida y, en algunos casos, el uso de medicamentos recetados.")
+creacion_consultations("El esguince cervical moderado es una lesión en los tejidos blandos del cuello, causada comúnmente por una fuerza brusca o un movimiento repentino de la cabeza hacia atrás, adelante o de lado a lado.")
+creacion_consultations("La bronquitis aguda es una inflamación de los bronquios, los conductos que llevan el aire hacia los pulmones. Esta afección suele ser causada por virus respiratorios, como el virus de la gripe o el virus sincitial respiratorio")
