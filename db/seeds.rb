@@ -130,7 +130,7 @@ def creacion_consultations(diagnostic)
 end
 
 creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")
-creacion_consultations("Dolor abdominal de origen desconocido.")
-creacion_consultations("Hipertensión arterial controlada.")
-creacion_consultations("Esguince cervical moderado.")
-creacion_consultations("Bronquitis aguda.")
+creacion_consultations("El dolor abdominal de origen desconocido es un síntoma que puede presentarse por una variedad de razones y puede afectar a personas de todas las edades y géneros. Este tipo de dolor puede manifestarse de diferentes formas, como calambres, punzadas o sensaciones de presión en el área abdominal.")
+creacion_consultations("La hipertensión arterial controlada es una condición médica en la que la presión arterial se mantiene dentro de los límites normales mediante la implementación de cambios en el estilo de vida y, en algunos casos, el uso de medicamentos recetados.")
+creacion_consultations("El esguince cervical moderado es una lesión en los tejidos blandos del cuello, causada comúnmente por una fuerza brusca o un movimiento repentino de la cabeza hacia atrás, adelante o de lado a lado.")
+creacion_consultations("La bronquitis aguda es una inflamación de los bronquios, los conductos que llevan el aire hacia los pulmones. Esta afección suele ser causada por virus respiratorios, como el virus de la gripe o el virus sincitial respiratorio")
