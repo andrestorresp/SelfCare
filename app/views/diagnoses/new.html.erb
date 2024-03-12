@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="form_card">
+    <div class="card-header text-center pt-3 fs-2">
+      <h2>Registra tu antecedente</h2>
+    </div>
+    <div class="card-body container pb-3">
+      <%= simple_form_for [@patient, @diagnosis] do |f| %>
+        <div class="form-inputs">
+          <%= f.error_notification %>
+          <%= f.label :diabetes %>
+          <%= f.check_box :diabetes %>
+          <%= f.label :hypertension %>
+          <%= f.check_box :hypertension %>
+          <%= f.label :tuberculosis %>
+          <%= f.check_box :tuberculosis %>
+          <%= f.label :cancer %>
+          <%= f.check_box :cancer %>
+          <%= f.label :other_diseases %>
+          <%= f.text_area :other_diseases %>
+          <%= f.label :other_details %>
+          <%= f.text_area :other_details %>
+          <%= f.submit %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Registrar diagnóstico", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

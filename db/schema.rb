@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_180733) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_183314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_180733) do
     t.index ["patient_id"], name: "index_consultations_on_patient_id"
   end
 
+  create_table "diagnoses", force: :cascade do |t|
+    t.boolean "diabetes"
+    t.boolean "hypertension"
+    t.boolean "tuberculosis"
+    t.boolean "cancer"
+    t.text "other_diseases"
+    t.text "other_details"
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_diagnoses_on_patient_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "specialty"
     t.integer "sap"
@@ -105,6 +118,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_180733) do
   add_foreign_key "blogs", "users"
   add_foreign_key "consultations", "doctors"
   add_foreign_key "consultations", "patients"
+  add_foreign_key "diagnoses", "patients"
   add_foreign_key "doctors", "users"
   add_foreign_key "patients", "users"
 end
