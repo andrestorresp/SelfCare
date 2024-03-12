@@ -133,11 +133,12 @@
     </style>
 </head>
 <body>
-
-<% if current_user.role == true %>
-  <h1>SOY UN DOCTOR</h1>
-<% else %>
-  <h1>SOY UN PACIENTE</h1>
+<% if user_signed_in?  %>
+  <% if current_user.role == true %>
+    <h1>SOY UN DOCTOR</h1>
+  <% else %>
+    <h1>SOY UN PACIENTE</h1>
+  <% end %>
 <% end %>
 <div class="card-1" style="background-color: rgba(30, 89, 62, 0.5);">
   <div class="card-1-body">
@@ -179,17 +180,9 @@
   </div>
 </div>
 </br></br>
-<hr class="bg-light">
 
-  <hr class="hr-text" data-content="AND">
 
-<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+
 
 </body>
 </html>
