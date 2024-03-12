@@ -66,15 +66,13 @@ end
 creacion_paciente("Analgésicos antiinflamatorios no esteroides", "El paciente no debe de usar Analgésicos antiinflamatorios. Estos pueden causar irritación o daño en el revestimiento del estómago y el tracto gastrointestinal.")
 creacion_paciente("Penicilina", "Evita tomar cualquier medicamento que contenga penicilina u otros antibióticos relacionados sin consultar primero, puedes tener dificultades al resporar y reacciones alergicas")
 
-# Creación de Usuarios
+# Creación de Usuarios al mismo tiempo que Doctores (Observar bien)
 crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
 creacion_doctor("Traumatologo", "8190851")
 crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
 creacion_doctor("Pediatria", "6460253")
 
-
-
-
+#Creación de los blogs
 blog1 = Blog.create!(
   comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
   title: "Ética en medicina: Desafíos y soluciones",
