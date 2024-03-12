@@ -125,12 +125,6 @@ def creacion_consultations(diagnostic)
   else
     puts "¡Error al crear el diagnóstico!"
   end
-
-  # rails console
-  Flat.create(address: "16 Villa Gaudelet, Paris", name: "Le Wagon HQ")
-  # rails console
-  Flat.near("Tour Eiffel", 10)   # flats within 10 km of Tour Eiffel
-  Flat.near([40.71, 100.23], 20) # flats within 20 km of a point
 end
 
 creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")
