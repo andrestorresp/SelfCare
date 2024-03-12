@@ -1,5 +1,5 @@
 <div class="body_in">
-  <div class="container body_in" id="container">
+  <div class="container_in body_in">
     <div class="form-container sign-in-container">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <h1>Iniciar sesion</h1>
@@ -8,7 +8,7 @@
           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <span>or use your account</span>
+        <span>o utiliza una cuenta</span>
         <div class="form-inputs">
           <%= f.input :email,
                       required: false,
@@ -19,7 +19,7 @@
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
-        <a href="#">Forgot your password?</a>
+        <a href="#">olvidaste la contraseña?</a>
         <div class="">
           <%= f.button :submit, "Log in", class:"button_login" %>
         </div>
@@ -27,15 +27,10 @@
     </div>
     <div class="overlay-container">
       <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>Welcome Back!</h1>
-          <p>To keep connected with us please login with your personal info</p>
-          <button class="ghost" id="signIn">Sign In</button>
-        </div>
         <div class="overlay-panel overlay-right">
-          <h1>Hello, Friend!</h1>
-          <p>Enter your personal details and start journey with us</p>
-          <button class="button_login" id="signUp">Sign Up</button>
+          <h1>Bienvenido!</h1>
+          <p>Registrate con nosotros y comienza el cuidado de tu hisotial medico</p>
+          <button class="button_login" id="signUp">Registrarse</button>
         </div>
       </div>
     </div>
