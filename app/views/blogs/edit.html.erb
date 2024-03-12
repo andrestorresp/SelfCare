@@ -5,10 +5,4 @@
 
   <%= f.submit "Guardar" %>
 <% end %>
-
-<% if @blog.photo.attached? %>
   <%= cl_image_tag @blog.photo.key, width: 300, height: 200, style: "border-radius: 10px;" %>
-<% else %>
-  <!-- Imagen predeterminada -->
-  <img src="/home/b730262/code/Manrique3/selfcare/app/assets/images/blogs/COVID.jpg" alt="Imagen Predeterminada" width="300" height="200" style="border-radius: 10px;">
-<% end %>
