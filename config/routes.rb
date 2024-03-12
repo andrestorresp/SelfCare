@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "doctors", to: "pages#doctors", as: :doctors
 
+  # Formulario de paciente
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :patients do
     resources :consultations, only: [:new, :create, :edit, :update]
+    resources :diagnoses, only: [:new, :create]
   end
   resources :blogs
   resources :consultations, except: %i[new create]
