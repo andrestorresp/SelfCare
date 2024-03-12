@@ -10,7 +10,7 @@ class Doctor < ApplicationRecord
     "#{user.first_name} #{user.last_name}"
   end
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  #geocoded_by :address
+  #after_validation :geocode, if: :will_save_change_to_address?
 
 end

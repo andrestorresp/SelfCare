@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="card" style="max-width: 500px; position: sticky; top: 50px; z-index: 1;">
+    <div class="card card_profile">
       <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, class: "card-img-top profile-image rounded-circle", style: "max-width: 200px; max-height: 200px; margin: auto;" %>
       <% end %>
@@ -13,7 +13,7 @@
           <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
           <li class="list-group-item"><strong>Número de teléfono:</strong> <%= @user.phone_number %></li>
           <li class="list-group-item"><strong>Alergia:</strong> <%= @patient.alergy %></li>
-          <li class="list-group-item" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <li class="list-group-item">
   <strong>Observación:</strong> <%= @patient.observation %>
 </li>
 
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="col-md-6">
-  <div class="card" style="max-width: 500px;">
+  <div class="card card-consultations">
     <div class="card-body">
       <h1>Consultas del Paciente</h1>
       <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn btn-success mb-3 rounded-pill' %>
