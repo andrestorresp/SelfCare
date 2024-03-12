@@ -50,7 +50,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:comment, :title)
+    params.require(:blog).permit(:comment, :title, :photo)
   end
 
   def set_blog
