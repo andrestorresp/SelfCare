@@ -1,18 +1,9 @@
-import { Controller } from "@hotwired/stimulus"
-import mapboxgl from 'mapbox-gl' // Don't forget this!
+import { Application } from "@hotwired/stimulus"
 
-export default class extends Controller {
-  static values = {
-    apiKey: String,
-    markers: Array
-  }
+const application = Application.start()
 
-  connect() {
-    mapboxgl.accessToken = this.apiKeyValue
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus   = application
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
-    })
-  }
-}
+export { application }
