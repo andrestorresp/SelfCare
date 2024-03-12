@@ -136,45 +136,10 @@
   }
 }
 
-//
 
-.blog-container {
+.blog-container{
   width: 90%;
   margin: auto;
+  border-radius: 3%;
 }
 
-.card-blog .row {
-  flex-wrap: wrap;
-  width: 300px;
-  height: 200px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  display: grid;
-  place-items: center;
-}
-
-.card-blog-1 {
-  flex: 1 1 200px;
-  grid-area: 1 / 2;
-}
-
- .card-img-top {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
- }
-
- .row-cols-md-3 > * {
-  flex: 1 3 auto;
-  width: 32%;
-  margin-left: 15px;
-  width: 30%;
- }
-
- .vermas{
-  text-decoration: underline;
-  :hover{
-    cursor: pointer;
-  }
- }

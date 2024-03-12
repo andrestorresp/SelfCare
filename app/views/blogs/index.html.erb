@@ -1,6 +1,4 @@
-<!-- app/views/blogs/index.html.erb -->
-
-<h1>Lista de Blogs</h1>
+</br><h1 style="text-align: center;">Lista de Blogs</h1></br>
 
 <div class="blog-container">
   <div class="row">
@@ -16,7 +14,7 @@
               <a class="text-primary see-more vermas">Ver más</a>
             </div>
 
-            <%# <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 300px; height: auto;', class: "card-img-top" if blog.photo.present? %>
+            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 300px; height: auto;', class: "img-fluid" if blog.photo.present? %>
 
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
           </div>
