@@ -77,9 +77,13 @@
   }
 }
 .abouthome{
-  width: 100%;
-  height: 50vh;
-  justify-content: center;
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
   align-items: center;
+  justify-content: space-around;
 }
-
+.title{
+  width: 550px;
+}
