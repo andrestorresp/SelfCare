@@ -1,4 +1,6 @@
 <%= simple_form_for @consultation, url: patient_consultations_path do |f| %>
   <%= f.input :diagnostic, label: "Diagnostico" %>
-  <%= f.submit  %>
+  <%= f.button :submit, "Create product", class: "btn btn-primary" %>
 <% end %>
+
+<%= console %>
