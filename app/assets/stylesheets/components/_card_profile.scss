@@ -10,20 +10,17 @@
   margin-bottom: 20px;
 }
 
-.card-body {
-  padding: 20px;
+.rounded-circle {
+  border-radius: 50%;
 }
 
-.card-title {
-  margin-bottom: 20px;
-}
 
-.list-group-item {
+.lista-gab {
   padding: 10px;
   border: none;
 }
 
-.list-group-item strong {
+.lista-gab strong {
   margin-right: 10px;
 }
 
@@ -32,6 +29,7 @@
   max-height: 150px;
   margin: auto;
   display: block;
+  border-radius: 50%; /* Este estilo hace que la imagen sea redonda */
 }
 
 .card-consultations{
@@ -39,7 +37,7 @@
   border-radius: 10px;
 }
 
-.card-img-top{
+.carta-gab{
   max-width: 200px;
   max-height: 200px;
   margin: auto;
