@@ -73,8 +73,6 @@ crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "
 creacion_doctor("Pediatria", "6460253")
 
 
-
-
 blog1 = Blog.create!(
   comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
   title: "Ética en medicina: Desafíos y soluciones",
