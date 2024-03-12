@@ -1,10 +1,11 @@
-<div class="modal-body">
+<div class="d-flex justify-content-center align-items-center">
+<div class="card card_profile">
   <%= simple_form_for @consultation, url: patient_consultations_path do |f| %>
-    <div class="form-group" tabindex="-1">
-      <%= f.label :diagnostic, "Diagnóstico", class: "control-label font-weight-bold" %>
-
+    <div tabindex="-1">
+      <h1>Diagnóstico</h1>
       <%= f.text_area :diagnostic, class: "form-control", placeholder: "Ingrese el diagnóstico aquí" %>
     </div>
     <%= f.button :submit, "Crear consulta", class: "btn btn-primary" %>
   <% end %>
+</div>
 </div>
