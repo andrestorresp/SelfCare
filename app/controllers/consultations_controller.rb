@@ -15,13 +15,11 @@ class ConsultationsController < ApplicationController
 
   def create
     @patient = Patient.find(params[:patient_id])
-    @doctor = current_user
-    @consultation = Consultation.new
+    @doctor = current_user.doctor
+    @consultation = Consultation.new(consultation_params)
     @consultation.patient_id = @patient.id
     @consultation.doctor_id = @doctor.id
-    @consultation.diagnostic = params[:consultation][:diagnostic]
-    puts "Donde esta el puuts?"+@consultation.inspect
-    if @consultation.save
+    if @consultation.save!
       redirect_to patient_path(@patient)
     else
       render :new, status: :unprocessable_entity
@@ -29,5 +27,12 @@ class ConsultationsController < ApplicationController
   end
 
   def update
+    raise
+  end
+
+  private
+
+  def consultation_params
+    params.require(:consultation).permit(:diagnostic)
   end
 end
