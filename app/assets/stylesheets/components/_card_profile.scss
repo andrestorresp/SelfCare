@@ -1,0 +1,58 @@
+.card_profile{
+  max-width: 500px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 50px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: none;
+}
+
+.list-group-item strong {
+  margin-right: 10px;
+}
+
+.profile-image {
+  max-width: 150px;
+  max-height: 150px;
+  margin: auto;
+  display: block;
+}
+
+.card-consultations{
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.card-img-top{
+  max-width: 200px;
+  max-height: 200px;
+  margin: auto;
+  object-fit: cover;
+  object-position: center center;
+  border: 5px solid #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.observation-container {
+  padding: 5px; /* Añade un espacio alrededor del texto */
+  background-color: #f8f9fa; /* Color de fondo para el contenedor */
+  border-radius: 5px; /* Añade esquinas redondeadas al contenedor */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  list-style: none;
+}

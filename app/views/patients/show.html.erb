@@ -1,49 +1,49 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="card" style="max-width: 500px; position: sticky; top: 50px; z-index: 1;">
+    <div class="card card_profile p-4" style="text-align: center;">
       <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, class: "card-img-top profile-image rounded-circle", style: "max-width: 200px; max-height: 200px; margin: auto;" %>
-      <% end %>
-      <div class="card-body">
-        <h1 class="card-title text-center">Perfil del Paciente</h1>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>Nombre:</strong> <%= @user.first_name %></li>
-          <li class="list-group-item"><strong>Apellido:</strong> <%= @user.last_name %></li>
-          <li class="list-group-item"><strong>Edad:</strong> <%= @user.age %></li>
-          <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
-          <li class="list-group-item"><strong>Número de teléfono:</strong> <%= @user.phone_number %></li>
-          <li class="list-group-item"><strong>Alergia:</strong> <%= @patient.alergy %></li>
-          <li class="list-group-item" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-  <strong>Observación:</strong> <%= @patient.observation %>
-</li>
+      <%= cl_image_tag @user.photo.key, class: "card-img-top profile-image rounded-circle"%>
 
+      <% end %>
+        <h1>Perfil del Paciente</h1>
+        <ul class="list-group list-group-flush">
+        <div class="d-flex">
+          <div>
+            <li class="list-group-item"><strong>Nombre:</strong> <%= @user.first_name %></li>
+            <li class="list-group-item"><strong>Apellido:</strong> <%= @user.last_name %></li>
+            <li class="list-group-item"><strong>Edad:</strong> <%= @user.age %></li>
+          </div>
+          <div>
+            <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
+            <li class="list-group-item"><strong>N° Telf:</strong> <%= @user.phone_number %></li>
+            <li class="list-group-item"><strong>Alergia:</strong> <%= @patient.alergy %></li>
+          </div>
+        </div>
+            <li class="observation-container"><strong>Observación:</strong> <%= @patient.observation %></li>
         </ul>
-      </div>
     </div>
   </div>
   <div class="col-md-6">
-  <div class="card" style="max-width: 500px;">
-    <div class="card-body">
-      <h1>Consultas del Paciente</h1>
-      <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn btn-success mb-3 rounded-pill' %>
-
-      <% if @consultations.any? %>
-        <ul class="list-group">
-          <% @consultations.each do |consultation| %>
-            <li class="list-group-item">
-              <p><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></p>
-              <p><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              <p><strong>Fecha de Actualización:</strong> <%= consultation.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-              <p><strong>Doctor:</strong> <%= consultation.doctor.full_name %></p>
-              <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
-            </li>
-          <% end %>
-        </ul>
-      <% else %>
-        <p>No hay consultas para este paciente.</p>
-      <% end %>
+    <div>
+      <div class="card card-consultations p-4">
+        <h1>Consultas del Paciente</h1>
+        <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn btn-success mb-3 rounded-pill' %>
+      </div>
+        <% if @consultations.any? %>
+          <ul class="list-group">
+            <% @consultations.each do |consultation| %>
+            <div class="card card-consultations p-4">
+                <li class="list-group-item"><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></li>
+                <li class="list-group-item"><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></li>
+                <li class="list-group-item"><strong>Fecha de Actualización:</strong> <%= consultation.updated_at.strftime("%Y-%m-%d %H:%M") %></li>
+                <li class="list-group-item"><strong>Doctor:</strong> <%= consultation.doctor.full_name %></li>
+                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
+            </div>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>No hay consultas para este paciente.</p>
+        <% end %>
     </div>
   </div>
-</div>
-
 </div>
