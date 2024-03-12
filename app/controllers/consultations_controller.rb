@@ -6,7 +6,8 @@ class ConsultationsController < ApplicationController
   end
 
   def edit
-    @consultations = Consultation.find(params[:id])
+    @consultation = Consultation.find(params[:id])
+    @patient = @consultation.patient
   end
 
   def new
@@ -14,6 +15,7 @@ class ConsultationsController < ApplicationController
   end
 
   def create
+    #Se busca el paciente
     @patient = Patient.find(params[:patient_id])
     @doctor = current_user.doctor
     @consultation = Consultation.new(consultation_params)
@@ -27,7 +29,13 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    raise
+    @consultation = Consultation.find(params[:id])
+
+    if @consultation.update(consultation_params)
+      redirect_to patient_path(@consultation.patient), notice: "Consulta actualizada correctamente"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

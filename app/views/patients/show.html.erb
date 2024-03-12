@@ -13,7 +13,10 @@
           <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
           <li class="list-group-item"><strong>Número de teléfono:</strong> <%= @user.phone_number %></li>
           <li class="list-group-item"><strong>Alergia:</strong> <%= @patient.alergy %></li>
-          <li class="list-group-item"><strong>Observación:</strong> <%= @patient.observation %></li>
+          <li class="list-group-item" style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <strong>Observación:</strong> <%= @patient.observation %>
+</li>
+
         </ul>
       </div>
     </div>
@@ -29,7 +32,8 @@
           <% @consultations.each do |consultation| %>
             <li class="list-group-item">
               <p><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></p>
-              <p><strong>Fecha del diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+              <p><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+              <p><strong>Fecha de Actualización:</strong> <%= consultation.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
               <p><strong>Doctor:</strong> <%= consultation.doctor.full_name %></p>
               <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
             </li>
