@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :blogs
-  has_many :doctors
-  has_many :patients
+  has_one :doctor
+  has_one :patient
   has_one_attached :photo
 
   validates :first_name, :last_name, :address, :dni, :phone_number, :age, presence: true
