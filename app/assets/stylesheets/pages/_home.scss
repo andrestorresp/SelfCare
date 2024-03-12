@@ -1,99 +1,135 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-body {
-  height: 100vh;
-  background-color: #030b0d;
-  display: grid;
-  place-items: center;
-  font-family: "Inter", sans-serif;
-  color: white;
-}
-
-.card-2-container {
-  display: flex;
-  flex-wrap: nowrap; /* Evita que las tarjetas se envuelvan en filas */
-  justify-content: center;
-}
-
-.card-2 {
-  flex: 1;
-  width: 400px;
-  margin-right: 11px;
-  aspect-ratio: 1 / 0.7;
-  border-radius: 8px;
-  position: relative;
-  cursor: pointer;
-  box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset 2px 2px 3px 0px rgba(0, 0, 0, 0.5);
-}
-.card-2 .image-box {
+.team{
+  background: #f9f9f9;
   width: 100%;
-  height: 100%;
-  border-radius: inherit;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
 }
-.card-2 .image-box img {
+
+.team h3{
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.team .after{
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.after:after{
+  content: '';
+  display: block;
+  margin: 10px auto;
+  width: 100px;
+  height: 3px;
+  background: #20BDFF;
+}
+
+.contenedor-team{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.people{
+  width: 27%;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.5);
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+}
+
+.people img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 90%;
-  border-radius: inherit;
-  transition: 0.5s ease-in-out;
 }
 
-.card-2::after {
-  content: "";
+.texto-people{
+  background: #20BDFF;
+  opacity: .8;
   position: absolute;
-  inset: 0;
-  border: 2px solid white;
-  border-radius: inherit;
-  opacity: 0;
-  transition: 0.4s ease-in-out;
+  height: 13%;
+  width: 100%;
+  padding: 15px;
+  bottom: 0;
+  z-index: 2;
+  color: #fff;
+  transition: .7s;
 }
 
-.card-2:hover img {
-  filter: grayscale(1) brightness(0.4);
-}
-.card-2:hover::after {
+.texto-people:hover{
   opacity: 1;
-  inset: 18px 20px 20px 20px;
 }
 
-.content {
-  width: 80%;
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.texto-people h4{
+  font-size: 22px;
+  font-weight: lighter;
+  margin-bottom: 15px;
 }
 
-.content h2,
-.content p {
-  opacity: 0;
-  transition: 0.4s 0.2s ease;
+.texto-people h3{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-.content h2 {
-  margin-bottom: 12px;
-  scale: 0.7;
+
+.people:hover .texto-people{
+  height: 40%;
 }
-.content p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #d1d1d1;
-  transform: translateY(50%);
+
+.social span{
+  font-size: 25px;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: .2s;
 }
-.card-2:hover .content h2 {
-  scale: 1;
-  opacity: 1;
+
+.social span:last-child{
+  margin-right: 0px;
 }
-.card-2:hover .content P {
-  opacity: 1;
-  transform: translateY(0);
+
+.social span:hover{
+  font-size: 40px;
+}
+
+@media screen and (max-width: 1000px){
+  .people{
+    width: 35%;
+    margin-bottom: 30px;
+  }
+
+  .people:last-child{
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .people{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 300px){
+  .people:hover .texto-people{
+    height: 52%;
+  }
+
+  .social span{
+    width: 40%;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .social span:last-child{
+    margin-bottom: 25px;
+  }
 }
