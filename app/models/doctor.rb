@@ -9,8 +9,4 @@ class Doctor < ApplicationRecord
   def full_name
     "#{user.first_name} #{user.last_name}"
   end
-
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
-
 end

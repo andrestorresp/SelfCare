@@ -4,12 +4,12 @@ class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[destroy show edit update]
 
   def index
-    @doctors = User.all.doctors
+    @doctors = User.where(role: true)
     # The `geocoded` scope filters only flats with coordinates
-    @markers = @flats.geocoded.map do |flat|
+    @markers = @doctors.geocoded.map do |doctor|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: doctor.latitude,
+        lng: doctor.longitude
       }
     end
   end
