@@ -18,7 +18,7 @@
 
             <hr style="border-top: 1px solid #ccc;">
               <div class="text-muted">
-                <i class="fa-solid fa-user"></i>
+                <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
                 <%= blog.user.first_name %> <%= blog.user.last_name %>
               </div>
           </div>
