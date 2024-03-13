@@ -1,0 +1,72 @@
+/* Overall form container */
+.actualizacion-blog-form {
+  width: 500px; /* Adjust width as needed */
+  margin: 50px auto; /* Center the form horizontally */
+  padding: 30px; /* Add some padding inside the form */
+  border: 1px solid #ffffff; /* Add a thin border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 0 10px #ffffff1a; /* Subtle shadow effect */
+}
+
+/* Form Heading (h2) */
+.actualizacion-blog-form h2 {
+  text-align: center; /* Center the heading text */
+  margin-bottom: 20px; /* Add some space below the heading */
+  font-size: 20px; /* Adjust font size for heading */
+  color: #333; /* Set heading text color */
+}
+
+/* Input Fields */
+.title,
+.comment,
+.photo {
+  width: 100%; /* Set width for all input fields */
+  padding: 10px;
+  margin-bottom: 15px; /* Add space between input fields */
+  border: 1px solid #ccc; /* Add a border to the inputs */
+  border-radius: 3px; /* Add rounded corners to the input fields */
+}
+
+.comment {
+  height: 150px; /* Set height for the comment text area */
+}
+
+/* Submit Button */
+.boton {
+  background-color: #4CAF50; /* Green color for the button */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Add some padding to the button */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Add rounded corners to the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.boton:hover {
+  background-color: #45A049; /* Darker green on hover */
+}
+
+/* Image Preview */
+.actualizacion-blog-form img {
+  margin-top: 20px; /* Add space above the image */
+  display: block; /* Ensure image displays properly */
+}
+
+/* Update form container background */
+.actualizacion-blog-form {
+  background-color: #fff; /* Change background to white */
+}
+
+/* Update input field background */
+.title,
+.comment,
+.photo {
+  background-color: #fff; /* Set white background for inputs */
+}
+
+/* Adjust input field opacity (optional) */
+.title,
+.comment,
+.photo {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border-color: rgba(0, 0, 0, 0.3); /* Adjust border opacity */
+}

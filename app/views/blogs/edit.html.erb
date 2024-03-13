@@ -1,8 +1,11 @@
-<%= simple_form_for(@blog) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment, as: :text %>
-  <%= f.input :photo, as: :file %>
-
-  <%= f.submit "Guardar" %>
-<% end %>
+<div class="actualizacion-blog-form">
+  <h2>Actualizacion de Información</h2>
+  <hr style="border-top: 1px solid #ccc;">
+  <%= simple_form_for(@blog) do |f| %>
+  <%= f.input :title, class:"title"%>
+  <%= f.input :comment, as: :text, class:"comment"%>
+  <%= f.input :photo, as: :file, class:"photo"%>
+  <%= f.submit "Guardar", class:"boton"%>
   <%= cl_image_tag @blog.photo.key, width: 300, height: 200, style: "border-radius: 10px;" %>
+</div>
+<% end %>
