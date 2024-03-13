@@ -30,11 +30,9 @@ def crear_usuario(email, password, role, first_name, last_name, address, latitud
 end
 
 #Método de crear paciente
-def creacion_paciente(alergy, observation)
+def creacion_paciente()
   last_user_id = User.order(id: :desc).first.id
   patient = Patient.new(
-    alergy: alergy,
-    observation: observation,
     user_id: last_user_id
   )
   if patient.save
@@ -43,7 +41,6 @@ def creacion_paciente(alergy, observation)
     puts "Error al crear el paciente"
   end
 end
-
 
 #Método de crear doctor
 def creacion_doctor(specialty, sap)
