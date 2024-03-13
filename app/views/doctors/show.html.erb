@@ -1,0 +1,28 @@
+  <div class="row">
+  <!--!!!!!CUIDADOOOOOO¡¡¡¡¡-->
+  <!--!!!!!ESTO ES DE LA CARTA DEL PERFIL DEL DOCTOR¡¡¡¡¡-->
+  <!--!!!!!LO QUE ESTA EN LA LÍNEA 4 ES LO QUE GENERA EL COLOR DE bg-success EL COLOR VERDE-AZULADO ES ESA INSTRUCCIÓN¡¡¡¡¡-->
+  <div class="col-md-6 d-flex justify-content-center bg-success">
+    <div class="card card_profile p-4" style="text-align: center;">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "card-img-top carta-gab profile-image" %>
+      <% end %>
+      <h1 class="p-3">Perfil del Doctor</h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item lista-gab"><strong>Nombre:</strong> <%= @user.first_name %></li>
+        <li class="list-group-item lista-gab"><strong>Apellido:</strong> <%= @user.last_name %></li>
+        <li class="list-group-item lista-gab"><strong>Edad:</strong> <%= @user.age %></li>
+        <li class="list-group-item lista-gab"><strong>DNI:</strong> <%= @user.dni %></li>
+        <li class="list-group-item lista-gab"><strong>N° Telf:</strong> <%= @user.phone_number %></li>
+        <li class="list-group-item lista-gab"><strong>Especialidad:</strong> <%= @doctor.specialty %></li>
+        <li class="list-group-item lista-gab"><strong>Ubicación:</strong> <%= @user.address %></li>
+      </ul>
+    </div>
+  </div>
+  <!--!!!!!CUIDADOOOOOO¡¡¡¡¡-->
+  <!--!!!!!ESTO ES DONDE ESTARÍA EL MAPA DEL DOCTOR¡¡¡¡¡-->
+  <!--!!!!!LO QUE ESTA EN LA LÍNEA 21 ES LO QUE GENERA EL COLOR DE bg-warning EL COLOR NARANJA ES ESA INSTRUCCIÓN¡¡¡¡¡-->
+  <div class="col-md-6 ml-3 bg-warning">
+    <p>Algo aqui del mapa</p>
+  </div>
+</div>
