@@ -163,8 +163,6 @@ creacion_consultations("La diabetes tipo 2 es una enfermedad crónica que afecta
 creacion_consultations("La artritis reumatoide es una enfermedad autoinmune que causa inflamación en las articulaciones. Los síntomas incluyen dolor, hinchazón, rigidez y dificultad para mover las articulaciones.")
 creacion_consultations("La ansiedad es una respuesta natural del cuerpo al estrés, pero cuando se vuelve excesiva o persistente, puede interferir con la vida diaria. Los síntomas incluyen nerviosismo, preocupación excesiva, irritabilidad y tensión muscular.")
 
-
-
 # Crear un diagnóstico para un paciente con diabetes y tuberculosis
 creacion_diagnosis(true, false, true, false, nil, nil)
 
