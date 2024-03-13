@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <div class="card-header text-center pt-3 fs-2">
+      <h2>Registra tu antecedente</h2>
+    </div>
+    <div class="card-body container pb-3">
+      <%= simple_form_for(@patient) do |f| %>
+        <div class="form-inputs">
+          <%= f.error_notification %>
+          <%= f.label :alergias %>
+          <%= f.input :alergy,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Alergy" }%>
+           <%= f.label :observación %>
+          <%= f.text_area :observation,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Observation" }%>
+          <%= f.submit %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Registrar Paciente", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

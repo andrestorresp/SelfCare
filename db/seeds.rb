@@ -95,6 +95,7 @@ creacion_doctor("Ginecología", "8756395")
 crear_usuario("aronlista@gmail.com", "12345678", true, "Aron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
 creacion_doctor("Ortopedia", "5467891")
 
+
 #Creación de los blogs
 blog1 = Blog.create!(
   comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
@@ -148,6 +149,7 @@ def creacion_consultations(diagnostic)
   else
     puts "¡Error al crear el diagnóstico!"
   end
+
 end
 
 creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")

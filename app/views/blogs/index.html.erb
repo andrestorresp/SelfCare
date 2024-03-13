@@ -1,13 +1,66 @@
+</br><h1 style="text-align: center;">Lista de Blogs</h1></br>
 
-<h1>Lista de Blogs</h1>
+<div class="blog-container">
+  <div class="row">
+    <% @blogs.each do |blog| %>
+      <div class="col-4 mb-3">
+        <div class="card blogs-border">
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <div class="card-text-container">
+              <p class="card-text-full"><%= blog.comment %></p>
+              <p class="card-text-short" style="display: none;"><%= blog.comment.truncate(85) %></p>
+              <a class="text-primary see-more vermas">Ver más</a>
+            </div>
 
-<% @blogs.each do |blog| %>
-  <div class="blog">
-    <h2><%= blog.title %></h2>
-    <p><%= blog.comment %></p>
+            <%# </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
+            <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
 
-    <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 300px; height: auto;' if blog.photo.present? %>
-
-    <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
+            <hr style="border-top: 1px solid #ccc;">
+              <div class="text-muted">
+                <i class="fa-solid fa-user"></i>
+                <%= blog.user.first_name %> <%= blog.user.last_name %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
+<script>
+const seeMoreButtons = document.querySelectorAll(".see-more");
+
+seeMoreButtons.forEach((button) => {
+  const cardTextFull = button.parentNode.querySelector(".card-text-full");
+  const cardTextShort = button.parentNode.querySelector(".card-text-short");
+  const localStorageKey = `comment-${button.dataset.commentId}`;
+  let isExpanded = localStorage.getItem(localStorageKey) === "true";
+
+  if (isExpanded) {
+    cardTextFull.style.display = "block";
+    cardTextShort.style.display = "none";
+    button.textContent = "Ver menos";
+  } else {
+    cardTextFull.style.display = "none";
+    cardTextShort.style.display = "block";
+    button.textContent = "Ver más";
+  }
+
+  button.addEventListener("click", (event) => {
+    if (isExpanded) {
+      cardTextFull.style.display = "none";
+      cardTextShort.style.display = "block";
+      button.textContent = "Ver más";
+      isExpanded = false;
+      localStorage.setItem(localStorageKey, "false");
+    } else {
+      cardTextFull.style.display = "block";
+      cardTextShort.style.display = "none";
+      button.textContent = "Ver menos";
+      isExpanded = true;
+      localStorage.setItem(localStorageKey, "true");
+    }
+  });
+});
+</script>

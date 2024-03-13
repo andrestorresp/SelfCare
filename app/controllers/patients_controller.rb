@@ -30,8 +30,8 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
     @user = current_user
+    @patient.user = @user
   end
-
 
   def create
     @patient = Patient.new(patient_params)

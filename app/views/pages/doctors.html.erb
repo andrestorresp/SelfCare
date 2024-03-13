@@ -38,3 +38,33 @@
       </div>
     </div>
   </div>
+
+  </br><h1 style="margin:20px;">Ubica a tus doctores</h1></br>
+
+<div class="info-container">
+  <div class= "px-3 flex-fill">
+  <div class="map-container w-100">
+    <div style="width: 100%; height: 500px;"
+         data-controller="map"
+         data-map-markers-value="<%= @markers.to_json %>"
+         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+  </div>
+  <div class="separacion"></div>
+  <div class="info-area ps-3">
+    <h3 style="color: #F2BF5E">Contactanos:</h3>
+      <P><i class="fa-solid fa-phone"></i> LLAMANOS</P>
+      <P> 0424-2417842 </P>
+      <P><i class="fa-solid fa-envelope"></i> CONSULTANOS </P>
+      </P>selfcare.atencion@gmail.com</P>
+      <P><i class="fa-solid fa-clock"></i> HORARIO DE TRABAJO </P>
+      <P>Lun - Vier | 8:00 a.m - 5:00 p.m</P>
+      <%# <p><div class="footer-links">
+    <a href="https://github.com/tuempresa"><i class="fa-brands fa-github"></i></a>
+    <a href="https://instagram.com/tuempresa"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/tuempresa"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/tuempresa"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/company/tuempresa"><i class="fab fa-linkedin"></i></a>
+  </div></p> %>
+  </div>
+</div>
