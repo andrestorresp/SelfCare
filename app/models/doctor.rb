@@ -5,7 +5,7 @@ class Doctor < ApplicationRecord
   validates :specialty, :sap, presence: true
   validates :sap, uniqueness: true
 
-  #Creación del método para mostrar el nombre completo de los doctores al ver las consultas
+  # Método para mostrar el nombre completo de los doctores
   def full_name
     "#{user.first_name} #{user.last_name}"
   end
