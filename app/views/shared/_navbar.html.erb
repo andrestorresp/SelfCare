@@ -40,7 +40,7 @@
         <%end  %>
 
         <% if user_signed_in? && current_user.role == false  %>
-          <li class="nav-item dropdown z-5">
+          <li class="nav-item dropdown z-5 m-10" style="margin:10px;">
             <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mi perfil", patient_path(current_user.patient)%>
@@ -49,7 +49,7 @@
             </div>
           </li>
         <% elsif user_signed_in? && current_user.role == true %>
-          <li class="nav-item dropdown z-5">
+          <li class="nav-item dropdown z-5" style="margin:10px;">
             <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mi perfil", doctor_path(current_user.doctor)%>
