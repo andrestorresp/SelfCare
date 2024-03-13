@@ -1,9 +1,11 @@
 Consultation.destroy_all
 Blog.destroy_all
+Diagnosis.destroy_all
 Doctor.destroy_all
 Patient.destroy_all
 User.destroy_all
 
+#Método de crear usuario
 def crear_usuario(email, password, role, first_name, last_name, address, latitude, longitude, dni, phone_number, age, photo_path)
   usuario = User.new(
     email: email,
@@ -27,18 +29,13 @@ def crear_usuario(email, password, role, first_name, last_name, address, latitud
   end
 end
 
-# Creación de Usuarios
-crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
-crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
-
-# Creación de los pacientes
-
+#Método de crear paciente
 def creacion_paciente(alergy, observation)
-  last_two_user_ids = User.order(id: :desc).limit(2).pluck(:id)
+  last_user_id = User.order(id: :desc).first.id
   patient = Patient.new(
     alergy: alergy,
     observation: observation,
-    user_id: last_two_user_ids.sample
+    user_id: last_user_id
   )
   if patient.save
     puts "Paciente creado correctamente"
@@ -47,6 +44,8 @@ def creacion_paciente(alergy, observation)
   end
 end
 
+
+#Método de crear doctor
 def creacion_doctor(specialty, sap)
   last_user_id = User.order(id: :desc).pluck(:id).first
   doctor = Doctor.new(
@@ -62,11 +61,32 @@ def creacion_doctor(specialty, sap)
   end
 end
 
-# Creación de Pacientes
+def creacion_diagnosis(diabetes, hypertension, tuberculosis, cancer, other_diseases, other_details)
+  diagnosis = Diagnosis.new(
+    diabetes: diabetes,
+    hypertension: hypertension,
+    tuberculosis: tuberculosis,
+    cancer: cancer,
+    other_diseases: other_diseases,
+    other_details: other_details,
+    patient_id: Patient.pluck(:id).sample
+  )
+
+  if diagnosis.save
+    puts "¡Diagnóstico creado exitosamente!"
+  else
+    puts "¡Error al crear el diagnóstico!"
+  end
+end
+
+#Observar bien para alguna modificación
+#Se crea un usuario y luego un paciente
+crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
 creacion_paciente("Analgésicos antiinflamatorios no esteroides", "El paciente no debe de usar Analgésicos antiinflamatorios. Estos pueden causar irritación o daño en el revestimiento del estómago y el tracto gastrointestinal.")
+crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
 creacion_paciente("Penicilina", "Evita tomar cualquier medicamento que contenga penicilina u otros antibióticos relacionados sin consultar primero, puedes tener dificultades al resporar y reacciones alergicas")
 
-# Creación de Usuarios al mismo tiempo que Doctores (Observar bien)
+#A continuación son la creación de los usaurios y luego la creación de los doctores
 crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
 creacion_doctor("Traumatologo", "8190851")
 crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
@@ -138,3 +158,19 @@ creacion_consultations("El dolor abdominal de origen desconocido es un síntoma 
 creacion_consultations("La hipertensión arterial controlada es una condición médica en la que la presión arterial se mantiene dentro de los límites normales mediante la implementación de cambios en el estilo de vida y, en algunos casos, el uso de medicamentos recetados.")
 creacion_consultations("El esguince cervical moderado es una lesión en los tejidos blandos del cuello, causada comúnmente por una fuerza brusca o un movimiento repentino de la cabeza hacia atrás, adelante o de lado a lado.")
 creacion_consultations("La bronquitis aguda es una inflamación de los bronquios, los conductos que llevan el aire hacia los pulmones. Esta afección suele ser causada por virus respiratorios, como el virus de la gripe o el virus sincitial respiratorio")
+creacion_consultations("La gastroenteritis es una inflamación del revestimiento del estómago e intestinos que puede ser causada por virus, bacterias o parásitos. Los síntomas comunes incluyen náuseas, vómitos, diarrea y dolor abdominal.")
+creacion_consultations("La neumonía es una infección pulmonar que puede ser causada por bacterias, virus u hongos. Los síntomas incluyen tos, fiebre, dificultad para respirar y dolor en el pecho.")
+creacion_consultations("La diabetes tipo 2 es una enfermedad crónica que afecta la forma en que el cuerpo procesa la glucosa en sangre. Los síntomas incluyen sed excesiva, micción frecuente, fatiga y visión borrosa.")
+creacion_consultations("La artritis reumatoide es una enfermedad autoinmune que causa inflamación en las articulaciones. Los síntomas incluyen dolor, hinchazón, rigidez y dificultad para mover las articulaciones.")
+creacion_consultations("La ansiedad es una respuesta natural del cuerpo al estrés, pero cuando se vuelve excesiva o persistente, puede interferir con la vida diaria. Los síntomas incluyen nerviosismo, preocupación excesiva, irritabilidad y tensión muscular.")
+
+
+
+# Crear un diagnóstico para un paciente con diabetes y tuberculosis
+creacion_diagnosis(true, false, true, false, nil, nil)
+
+# Crear un diagnóstico para un paciente con cáncer y otras enfermedades
+creacion_diagnosis(false, false, false, true, "Asma", "Ninguna")
+
+# Crear un diagnóstico para un paciente con hipertensión y otros detalles especificados
+creacion_diagnosis(false, true, false, false, nil, "Presión arterial alta, medicamentos recetados")
