@@ -71,6 +71,12 @@ crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parr
 creacion_doctor("Traumatologo", "8190851")
 crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
 creacion_doctor("Pediatria", "6460253")
+crear_usuario("odreman@gmail.com", "12345678", true, "Crhistopher", "Odreman", "Guatire", 10.46388043559612, -66.51913724232891, 26809648, "2347654321", 25, 'app/assets/images/perfiles/Perfil_Crhistopher.jpg')
+creacion_doctor("Dermatología", "6860439")
+crear_usuario("jacg182010@gmail.com", "12345678", true, "Jose", "Carrillo", "Guatire", 10.345151275851153, -67.04269880010001, 24043798, "5981631461", 28, 'app/assets/images/perfiles/Perfil_Carrillo.jpg')
+creacion_doctor("Ginecología", "8756395")
+crear_usuario("aronlista@gmail.com", "12345678", true, "Aron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
+creacion_doctor("Ortopedia", "5467891")
 
 
 #Creación de los blogs
