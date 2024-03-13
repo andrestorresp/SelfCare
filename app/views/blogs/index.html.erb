@@ -13,12 +13,12 @@
               <a class="text-primary see-more vermas">Ver más</a>
             </div>
 
-            <%# </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
+            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
 
             <hr style="border-top: 1px solid #ccc;">
               <div class="text-muted">
-                <i class="fa-solid fa-user"></i>
+                <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
                 <%= blog.user.first_name %> <%= blog.user.last_name %>
               </div>
           </div>
