@@ -13,7 +13,7 @@
               <a class="text-primary see-more vermas">Ver más</a>
             </div>
 
-            <%# </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
+            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
 
             <hr style="border-top: 1px solid #ccc;">

@@ -1,6 +1,7 @@
 <div class="actualizacion-blog-form">
   <h2>Crear Blog</h2>
-<%= simple_form_for(@blog) do |f| %>
+ <hr style="border-top: 1px solid #ccc;">
+  <%= simple_form_for(@blog) do |f| %>
   <%= f.input :title, class:"title"%>
   <%= f.input :comment, as: :text,  class:"comment" %>
   <%= f.input :photo, as: :file, class:"photo" %>
