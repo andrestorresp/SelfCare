@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <div class="card-header text-center pt-3 fs-2">
+      <h2>Completa los siguientes datos:</h2>
+    </div>
+    <div class="card-body container pb-3">
+      <%= simple_form_for(@doctor) do |f| %>
+        <div class="form-inputs">
+          <%= f.error_notification %>
+          <%= f.label :Especialidad %>
+          <%= f.input :specialty,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "specialty" }%>
+         <%= f.label :Sap %>
+          <%= f.input :sap,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "sap" }%>
+          <%= f.submit %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Registrar Paciente", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
