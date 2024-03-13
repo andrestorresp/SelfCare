@@ -79,9 +79,9 @@ end
 #Observar bien para alguna modificación
 #Se crea un usuario y luego un paciente
 crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
-creacion_paciente("Analgésicos antiinflamatorios no esteroides", "El paciente no debe de usar Analgésicos antiinflamatorios. Estos pueden causar irritación o daño en el revestimiento del estómago y el tracto gastrointestinal.")
+creacion_paciente()
 crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
-creacion_paciente("Penicilina", "Evita tomar cualquier medicamento que contenga penicilina u otros antibióticos relacionados sin consultar primero, puedes tener dificultades al resporar y reacciones alergicas")
+creacion_paciente()
 
 #A continuación son la creación de los usaurios y luego la creación de los doctores
 crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
