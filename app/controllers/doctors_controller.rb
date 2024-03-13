@@ -19,7 +19,8 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @consultations = consultations.new
+    @doctor = Doctor.find(params[:id]) # Busca el paciente
+    @user = User.find(@doctor.user_id) # Encuentra el usuario asociado al paciente
   end
 
   def create
