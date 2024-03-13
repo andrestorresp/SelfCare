@@ -14,3 +14,10 @@
 .blogs-border:hover {
   transform: translateX(5px) translateY(5px);
 }
+
+.card-blog-title {
+  max-width: 100%; /* Adjust the value for desired width */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide excess content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for long titles */
+}
