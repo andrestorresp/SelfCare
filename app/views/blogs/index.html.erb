@@ -4,19 +4,23 @@
   <div class="row">
     <% @blogs.each do |blog| %>
       <div class="col-4 mb-3">
-        <div class="card">
+        <div class="card blogs-border">
           <div class="card-body">
             <h5 class="card-title"><%= blog.title %></h5>
-
             <div class="card-text-container">
               <p class="card-text-full"><%= blog.comment %></p>
-              <p class="card-text-short" style="display: none;"><%= blog.comment.truncate(100) %></p>
+              <p class="card-text-short" style="display: none;"><%= blog.comment.truncate(85) %></p>
               <a class="text-primary see-more vermas">Ver más</a>
             </div>
 
-            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 300px; height: auto;', class: "img-fluid" if blog.photo.present? %>
-
+            <%# </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
+
+            <hr style="border-top: 1px solid #ccc;">
+              <div class="text-muted">
+                <i class="fa-solid fa-user"></i>
+                <%= blog.user.first_name %> <%= blog.user.last_name %>
+              </div>
           </div>
         </div>
       </div>
