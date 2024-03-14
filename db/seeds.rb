@@ -82,7 +82,7 @@ crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Mo
 creacion_paciente()
 crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpg')
 creacion_paciente()
-crear_usuario("erika.azuaje2014@gmail.com", "12345678", false, "Erika", "Azuaje", "Polideportivo La Dolorita", 10.468863973857529, -66.76779921808335, 23631976, "04141256627", 25, 'app/assets/images/perfiles/Perfil_Erika.jpeg')
+crear_usuario("erika.azuaje2014@gmail.com", "12345678", false, "Erika", "Azuaje", "Polideportivo La Dolorita", 10.468863973857529, -66.76779921808335, 23631976, "04141256627", 25, 'app/assets/images/perfiles/Perfil_Erika.jpg')
 creacion_paciente()
 
 #A continuación son la creación de los usaurios y luego la creación de los doctores
