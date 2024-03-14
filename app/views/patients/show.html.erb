@@ -52,7 +52,6 @@
                 <li class="list-group-item lista-gab"><strong>Doctor:</strong> <%= consultation.doctor.full_name %></li>
                 <% if current_user == consultation.doctor.user %>
                   <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
-                  <%= link_to 'Eliminar', consultation_path(consultation), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar esta consulta? ❌' }, class: 'btn btn-primary'%>
                 <% end %>
             </div>
             <% end %>
