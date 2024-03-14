@@ -222,7 +222,7 @@ creacion_consultations("La ansiedad es una respuesta natural del cuerpo al estr�
 creacion_diagnosis(true, false, true, false, nil, nil)
 
 # Crear un diagnóstico para un paciente con cáncer y otras enfermedades
-creacion_diagnosis(false, false, false, true, "Asma", "Ninguna")
+creacion_diagnosis(false, false, false, true, "Padezco de Asma  desde los 5 años y de artritis desde una vez que fui senderista", "Cambios en el estado de salud desde el último chequeo médico")
 
 # Crear un diagnóstico para un paciente con hipertensión y otros detalles especificados
-creacion_diagnosis(false, true, false, false, nil, "Presión arterial alta, medicamentos recetados")
+creacion_diagnosis(false, true, false, false, "Sufro de Depresión, ansiedad, problemas cardíacos", "Síntomas específicos asociados con la condición médica. Presión arterial alta, medicamentos recetados")
