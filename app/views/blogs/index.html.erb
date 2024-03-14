@@ -1,66 +1,38 @@
-</br><h1 style="text-align: center;">Lista de Blogs</h1></br>
+<br><h1 style="text-align: center;">Lista de Blogs</h1><br>
 
-<div class="blog-container">
+
+<%# buscardor %>
+<div class="search-container tm-row">
+  <div class="row">
+    <div class="col-12">
+      <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+      <button class="tm-search-button" type="submit">
+        <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="blog-container tm-row">
   <div class="row">
     <% @blogs.each do |blog| %>
-      <div class="col-4 mb-3">
+      <div class="col-12 col-md-4">
+        <hr class="tm-hr-primary">
         <div class="card blogs-border">
           <div class="card-body">
-            <h5 class="card-blog-title"><%= blog.title %></h5>
-            <div class="card-text-container">
-              <p class="card-text-full"><%= blog.comment %></p>
-              <p class="card-text-short" style="display: none;"><%= blog.comment.truncate(85) %></p>
-              <a class="text-primary see-more vermas">Ver más</a>
+            <div class="tm-post-link-inner">
+              <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 500px; height: 223px;', class: "img-fluid" if blog.photo.present? %>
             </div>
-
-            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
+            <hr>
+            <h5 class="tm-pt-30 tm-color-primary tm-post-title"><%= blog.title %></h5>
+            <p class="tm-pt-30"><%= blog.comment %></p>
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
-
-            <hr style="border-top: 1px solid #ccc;">
-              <div class="text-muted">
-                <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
-                <%= blog.user.first_name %> <%= blog.user.last_name %>
-              </div>
+            <hr>
+            <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
+            <%= blog.user.first_name %> <%= blog.user.last_name %></span>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<script>
-const seeMoreButtons = document.querySelectorAll(".see-more");
-
-seeMoreButtons.forEach((button) => {
-  const cardTextFull = button.parentNode.querySelector(".card-text-full");
-  const cardTextShort = button.parentNode.querySelector(".card-text-short");
-  const localStorageKey = `comment-${button.dataset.commentId}`;
-  let isExpanded = localStorage.getItem(localStorageKey) === "true";
-
-  if (isExpanded) {
-    cardTextFull.style.display = "block";
-    cardTextShort.style.display = "none";
-    button.textContent = "Ver menos";
-  } else {
-    cardTextFull.style.display = "none";
-    cardTextShort.style.display = "block";
-    button.textContent = "Ver más";
-  }
-
-  button.addEventListener("click", (event) => {
-    if (isExpanded) {
-      cardTextFull.style.display = "none";
-      cardTextShort.style.display = "block";
-      button.textContent = "Ver más";
-      isExpanded = false;
-      localStorage.setItem(localStorageKey, "false");
-    } else {
-      cardTextFull.style.display = "block";
-      cardTextShort.style.display = "none";
-      button.textContent = "Ver menos";
-      isExpanded = true;
-      localStorage.setItem(localStorageKey, "true");
-    }
-  });
-});
-</script>
