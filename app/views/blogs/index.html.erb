@@ -1,6 +1,5 @@
 <br><h1 style="text-align: center;">Lista de Blogs</h1><br>
 
-
 <%# buscardor %>
 <div class="search-container tm-row">
   <div class="row">
@@ -13,10 +12,10 @@
   </div>
 </div>
 
-<div class="blog-container tm-row">
+<div class="blog-container tm-row pb-5">
   <div class="row">
     <% @blogs.each do |blog| %>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 mb-3">
         <hr class="tm-hr-primary">
         <div class="card blogs-border">
           <div class="card-body">
@@ -24,8 +23,10 @@
               <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 500px; height: 223px;', class: "img-fluid" if blog.photo.present? %>
             </div>
             <hr>
-            <h5 class="tm-pt-30 tm-color-primary tm-post-title"><%= blog.title %></h5>
-            <p class="tm-pt-30"><%= blog.comment %></p>
+            <div class="d-flex align-items-center" style="height: 65px;">
+            <h5 class="mb-0 tm-color-primary tm-post-title"><%= blog.title %></h5>
+            </div>
+            <p style="height: 160px"><%= blog.comment %></p>
             <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
             <hr>
             <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>

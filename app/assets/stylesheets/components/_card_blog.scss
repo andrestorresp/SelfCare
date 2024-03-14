@@ -8,12 +8,11 @@
  .blogs-border{
  border-radius: 8px;
  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
- height: 100%;
  }
 
-.blogs-border:hover {
-  transform: translateX(5px) translateY(5px);
- }
+// .blogs-border:hover {
+//   transform: translateX(5px) translateY(5px);
+//  }
 
 // .card-blog-title {
 //   max-width: 100%; /* Adjust the value for desired width */
@@ -381,7 +380,7 @@ ul {
 /* Single Post page */
 hr.tm-hr-primary {
   border-top: 5px solid #ffffff;
-  width: 110%;
+  width: 100%;
  }
 
 video {
