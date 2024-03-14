@@ -9,7 +9,15 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Por favor consulte los problemas a continuación:"
+      default_message: "Fallo al registrarse"
+      labels:
+  defaults:
+    password: 'Contraseña'
+  user:
+    new:
+      email: 'Correo electrónico para iniciar sesión.'
+    edit:
+      email: 'Correo electrónico.'
     # Examples
     # labels:
     #   defaults:
