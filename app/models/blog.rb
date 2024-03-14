@@ -3,5 +3,5 @@ class Blog < ApplicationRecord
   has_one_attached :photo
 
   validates :title, length: { in: 12..40 }
-  validates :comment, length: { maximum: 500 }
+  validates :comment, length: { maximum: 250 }
 end

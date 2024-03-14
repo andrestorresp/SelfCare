@@ -113,7 +113,8 @@ creacion_doctor("Ortopedia", "5467891")
 
 #Creación de los blogs
 blog1 = Blog.create!(
-  comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
+  comment: "
+  La práctica médica presenta desafíos éticos diversos que los profesionales deben abordar, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, garantizando la integridad y la calidad de la atención.",
   title: "Ética médica: Desafíos y soluciones",
   user_id: User.first.id
 )
@@ -133,7 +134,7 @@ blog2.photo.attach(io: File.open('app/assets/images/blogs/Telemedicina.jpg'), fi
 puts "Blog 2 creado correctamente"
 
 blog3 = Blog.create!(
-  comment: "La pandemia de COVID-19 ha tenido un impacto profundo en la salud mental y el bienestar emocional tanto de los pacientes como de los profesionales de la salud en todo el mundo. Desde el inicio de la pandemia, hemos sido testigos de una amplia gama de respuestas psicológicas, que van desde el estrés y la ansiedad hasta la depresión y el trauma, tanto en aquellos que han contraído el virus como en aquellos que han sido afectados de otras maneras por sus ramificaciones.",
+  comment: "La pandemia de COVID-19 ha tenido un impacto significativo en la salud mental, provocando estrés, ansiedad, depresión y trauma en la sociedad. Este impacto refleja los desafíos generalizados que enfrentamos durante estos tiempos difíciles.",
   title: "Impacto psicológico de COVID-19",
   user_id: User.third.id
 )
@@ -143,7 +144,7 @@ blog3.photo.attach(io: File.open('app/assets/images/blogs/COVID.jpg'), filename:
 puts "Blog 3 creado correctamente"
 
 blog4 = Blog.create!(
-  comment: "La salud mental es un componente fundamental de la atención médica integral que no debe pasarse por alto. Si bien tradicionalmente se ha prestado más atención a las enfermedades físicas, cada vez más se reconoce que la salud mental desempeña un papel crucial en el bienestar general de un individuo.",
+  comment: "La salud mental es esencial en la atención médica integral. Aunque se enfoca más en la salud física, se reconoce su importancia para el bienestar general.",
   title: "Importancia de la salud mental",
   user_id: User.last.id
 )
@@ -153,7 +154,7 @@ blog4.photo.attach(io: File.open('app/assets/images/blogs/Salud_Mental.jpg'), fi
 puts "Blog 4 creado correctamente"
 
 blog5 = Blog.create!(
-  comment: "La vida saludable se centra en promover un estilo de vida saludable, ofreciendo consejos prácticos sobre nutrición, ejercicio físico, manejo del estrés y hábitos saludables para mejorar la calidad de vida.",
+  comment: "La vida saludable promueve una nutrición equilibrada, actividad física y técnicas de manejo del estrés para mejorar la calidad de vida y el bienestar general.",
   title: "Vida Saludable Blog",
   user_id: User.last.id
 )
@@ -163,7 +164,7 @@ blog5.photo.attach(io: File.open('app/assets/images/blogs/Vida_Saludable.jpg'), 
 puts "Blog 5 creado correctamente"
 
 blog6 = Blog.create!(
-  comment: "Un enfoque holístico de la salud, integrando prácticas de medicina alternativa y complementaria con la medicina convencional. Explora temas como la acupuntura, la medicina herbal, la meditación, el yoga y otras terapias holísticas para promover el bienestar físico, mental y emocional.",
+  comment: "Un enfoque holístico de la salud, combinando medicina alternativa y convencional. Incluye acupuntura, medicina herbal, yoga y meditación para el bienestar físico, mental y emocional.",
   title: "Medicina Holística Blog",
   user_id: User.last.id
 )
@@ -173,7 +174,7 @@ blog6.photo.attach(io: File.open('app/assets/images/blogs/Medicina_Holistica.jpg
 puts "Blog 6 creado correctamente"
 
 blog7 = Blog.create!(
-  comment: "¡Descubre todo sobre las bandas de resistencia en nuestro blog! Te ofrecemos una guía detallada sobre su uso efectivo en tu entrenamiento, los beneficios para tu forma física, ejercicios recomendados y consejos para su mantenimiento. Con nuestra guía completa, maximizarás el potencial de las bandas de resistencia y mejorarás tu forma física. ¡Comienza tu viaje hacia un cuerpo más fuerte y saludable hoy mismo!",
+  comment: "Un enfoque holístico de la salud integra prácticas alternativas y complementarias con la medicina convencional. Incluye acupuntura, medicina herbal, meditación, yoga y terapias holísticas para bienestar físico, mental y emocional.",
   title: "Bandas de Resistencia Blog",
   user_id: User.last.id
 )
@@ -183,7 +184,7 @@ blog7.photo.attach(io: File.open('app/assets/images/blogs/Banda_Elastica.jpg'), 
 puts "Blog 7 creado correctamente"
 
 blog8 = Blog.create!(
-  comment: "Descubre las pesas tobilleras y muñequeras con nuestra guía. Mejora tu entrenamiento, añade resistencia al cardio, fortalece músculos. Consejos sobre peso, ejercicios efectivos. Alcanza tus metas fitness eficientemente. ¡Potencia tu entrenamiento ahora!",
+  comment: "Explora pesas tobilleras y muñequeras. Mejora tu entrenamiento, añade resistencia, fortalece músculos, consejos sobre peso y ejercicios. Alcanza metas fitness eficientemente. ¡Potencia tu entrenamiento ahora!",
   title: "Guía de Tobilleras y Muñequeras",
   user_id: User.last.id
 )
