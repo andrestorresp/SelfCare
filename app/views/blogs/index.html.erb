@@ -16,7 +16,12 @@
               <a class="text-primary see-more vermas">Ver más</a>
             </div>
 
-            </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
+            </br><% if blog.photo.present? %>
+                  <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" %>
+                <% else %>
+                  <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", style: 'width: 355px; height: auto;', class: "img-fluid" %>
+
+                <% end %>
             <% if current_user == blog.user %>
               <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
               <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
