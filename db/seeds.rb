@@ -101,7 +101,7 @@ creacion_doctor("Ortopedia", "5467891")
 #Creación de los blogs
 blog1 = Blog.create!(
   comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
-  title: "Ética en medicina: Desafíos y soluciones",
+  title: "Ética médica: Desafíos y soluciones",
   user_id: User.first.id
 )
 
@@ -111,7 +111,7 @@ puts "Blog 1 creado correctamente"
 
 blog2 = Blog.create!(
   comment: "Un término que antes parecía pertenecer a un futuro distante, se ha convertido en una realidad tangible que está revolucionando la forma en que recibimos atención médica en la era digital.",
-  title: "Telemedicina: atención en la era digital",
+  title: "Telemedicina en la era digital",
   user_id: User.second.id
 )
 
@@ -171,7 +171,7 @@ puts "Blog 7 creado correctamente"
 
 blog8 = Blog.create!(
   comment: "Descubre las pesas tobilleras y muñequeras con nuestra guía. Mejora tu entrenamiento, añade resistencia al cardio, fortalece músculos. Consejos sobre peso, ejercicios efectivos. Alcanza tus metas fitness eficientemente. ¡Potencia tu entrenamiento ahora!",
-  title: "Guía Completa de Tobilleras y Muñequeras",
+  title: "Guía de Tobilleras y Muñequeras",
   user_id: User.last.id
 )
 
