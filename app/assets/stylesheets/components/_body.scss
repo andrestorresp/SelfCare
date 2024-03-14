@@ -8,14 +8,14 @@
 }
 
 body{
-  background-image: linear-gradient( 117deg,  rgba(123,216,96,1) 39.2%, rgba(255,255,255,1) 156.2% );
+  background-color: #f9f9f9;
 }
 h1 {
   font-family: Merriweather;
 	font-weight: bold;
 	margin: 0;
-  color: var(--title-color);
-  text-shadow: 4px 3px 8px rgba(0,0,0,0.4);
+  color: #1E593E;
+
 }
 
 h2 {
@@ -65,4 +65,7 @@ input {
 }
 li{
   font-family: Montserrat;
+}
+#titulo-alt{
+  color: #99D68F;
 }
