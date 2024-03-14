@@ -110,7 +110,6 @@ creacion_doctor("Ginecología", "8756395")
 crear_usuario("aronlista@gmail.com", "12345678", true, "Aaron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
 creacion_doctor("Ortopedia", "5467891")
 
-
 #Creación de los blogs
 blog1 = Blog.create!(
   comment: "
@@ -194,16 +193,19 @@ blog8.photo.attach(io: File.open('app/assets/images/blogs/Munequera_Tobilleras.j
 puts "Blog 8 creado correctamente"
 
 def creacion_consultations(diagnostic)
+  patient_ids = Patient.pluck(:id)
+  doctor_ids = Doctor.pluck(:id)
+
   consultation = Consultation.new(
     diagnostic: diagnostic,
-    patient_id: Patient.pluck(:id).sample,
-    doctor_id: Doctor.pluck(:id).sample
+    patient_id: patient_ids.sample,
+    doctor_id: doctor_ids.sample
   )
 
   if consultation.save
-    puts "¡Consultas creado exitosamente!"
+    puts "¡Consulta creada exitosamente!"
   else
-    puts "¡Error al crear el Consultas!"
+    puts "¡Error al crear la consulta!"
   end
 end
 
