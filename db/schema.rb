@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_155413) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_145733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_155413) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "dni"
+    t.string "dni"
     t.string "phone_number"
     t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true

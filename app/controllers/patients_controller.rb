@@ -25,6 +25,14 @@ class PatientsController < ApplicationController
     end
   end
 
+  def buscar_px
+    if params[:query].present?
+      @patient = User.find_by(dni: params[:query]).patient.id
+      redirect_to patient_path(@patient)
+    else
+      redirect_to root_path
+    end
+  end
 
   def new
     @patient = Patient.new
