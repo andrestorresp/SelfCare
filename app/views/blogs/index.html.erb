@@ -16,6 +16,7 @@
             </br><%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" if blog.photo.present? %>
             <% if current_user == blog.user %>
               <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
+              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
             <% end %>
 
             <hr style="border-top: 1px solid #ccc;">
