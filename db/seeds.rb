@@ -59,6 +59,19 @@ def creacion_doctor(specialty, sap)
 end
 
 def creacion_diagnosis(diabetes, hypertension, tuberculosis, cancer, other_diseases, other_details)
+  # Obtener todos los IDs de los pacientes que ya tienen un diagnóstico
+  pacientes_con_diagnostico = Diagnosis.pluck(:patient_id)
+
+  # Obtener todos los IDs de los pacientes
+  todos_los_pacientes = Patient.pluck(:id)
+
+  # Excluir los IDs de los pacientes que ya tienen un diagnóstico
+  pacientes_sin_diagnostico = todos_los_pacientes - pacientes_con_diagnostico
+
+  # Seleccionar un paciente al azar de los que no tienen diagnóstico
+  paciente_id = pacientes_sin_diagnostico.sample
+
+  # Crear el diagnóstico
   diagnosis = Diagnosis.new(
     diabetes: diabetes,
     hypertension: hypertension,
@@ -66,7 +79,7 @@ def creacion_diagnosis(diabetes, hypertension, tuberculosis, cancer, other_disea
     cancer: cancer,
     other_diseases: other_diseases,
     other_details: other_details,
-    patient_id: Patient.pluck(:id).sample
+    patient_id: paciente_id
   )
 
   if diagnosis.save
@@ -187,11 +200,10 @@ def creacion_consultations(diagnostic)
   )
 
   if consultation.save
-    puts "¡Diagnóstico creado exitosamente!"
+    puts "¡Consultas creado exitosamente!"
   else
-    puts "¡Error al crear el diagnóstico!"
+    puts "¡Error al crear el Consultas!"
   end
-
 end
 
 creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")
