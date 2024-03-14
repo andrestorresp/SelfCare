@@ -1,33 +1,46 @@
-<div class="row">
+<div class="row" id="bgcolor">
   <div class="col-md-6">
-    <div class="card card_profile p-4" style="text-align: center;">
-      <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, class: "card-img-top carta-gab profile-image"%>
-
-      <% end %>
-        <h1>Perfil del Paciente</h1>
-        <ul class="list-group list-group-flush">
-        <div class="d-flex">
-          <div>
-            <li class="list-group-item lista-gab"><strong>Nombre:</strong> <%= @user.first_name %></li>
-            <li class="list-group-item lista-gab"><strong>Apellido:</strong> <%= @user.last_name %></li>
-            <li class="list-group-item lista-gab"><strong>Edad:</strong> <%= @user.age %></li>
-          </div>
-          <div>
-            <li class="list-group-item lista-gab"><strong>DNI:</strong> <%= @user.dni %></li>
-            <li class="list-group-item lista-gab"><strong>N° Telf:</strong> <%= @user.phone_number %></li>
-            <li class="list-group-item lista-gab"><strong>Alergia:</strong> <%= @patient.alergy %></li>
-          </div>
+  <div class="card card_profile p-4">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, class: "card-img-top carta-gab profile-image" %>
+    <% end %>
+    <h1 class="text-center">Perfil del Paciente</h1>
+    <ul class="list-group list-group-flush">
+      <div class="row">
+        <div class="col-md-6">
+          <li class="list-group-item"><strong>Nombre:</strong> <%= @user.first_name %></li>
+          <li class="list-group-item"><strong>Apellido:</strong> <%= @user.last_name %></li>
+          <li class="list-group-item"><strong>Edad:</strong> <%= @user.age %></li>
+          <li class="list-group-item"><strong>DNI:</strong> <%= @user.dni %></li>
         </div>
-            <li class="observation-container"><strong>Observación:</strong> <%= @patient.observation %></li>
-        </ul>
-    </div>
+        <div class="col-md-6">
+          <li class="list-group-item"><strong>N° Telf:</strong> <%= @user.phone_number %></li>
+          <li class="list-group-item"><strong>Diabetes:</strong> <%= @diagnosis.diabetes ? 'Sí tiene' : 'No tiene' %></li>
+          <% boolean_attributes = { "Hipertensión": @diagnosis.hypertension, "Tuberculosis": @diagnosis.tuberculosis, "Cáncer": @diagnosis.cancer } %>
+          <% boolean_attributes.each do |attribute, value| %>
+            <li class="list-group-item"><strong><%= attribute %>:</strong> <%= value ? 'Sí tiene' : 'No tiene' %></li>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <li class="list-group-item"><strong>Enfermedades:</strong> <%= @diagnosis.other_diseases.present? ? @diagnosis.other_diseases : "No hay información disponible" %></li>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <li class="list-group-item"><strong>Detalles:</strong> <%= @diagnosis.other_details.present? ? @diagnosis.other_details : "No hay información disponible" %></li>
+        </div>
+      </div>
+    </ul>
   </div>
+</div>
+
   <div class="col-md-6">
     <div>
       <div class="card card-consultations p-4">
         <h1>Consultas del Paciente</h1>
-        <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn btn-success mb-3 rounded-pill' %>
+        <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn' %>
       </div>
         <% if @consultations.any? %>
           <ul class="list-group">
@@ -37,7 +50,12 @@
                 <li class="list-group-item lista-gab"><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></li>
                 <li class="list-group-item lista-gab"><strong>Fecha de Actualización:</strong> <%= consultation.updated_at.strftime("%Y-%m-%d %H:%M") %></li>
                 <li class="list-group-item lista-gab"><strong>Doctor:</strong> <%= consultation.doctor.full_name %></li>
-                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
+
+                <% if current_user == consultation.doctor.user %>
+                  <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn' %>
+                <% end %>
+
+                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn' %>
             </div>
             <% end %>
           </ul>
@@ -47,4 +65,3 @@
     </div>
   </div>
 </div>
-<%= console %>

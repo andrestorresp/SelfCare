@@ -4,6 +4,6 @@
   <%= simple_form_for(@blog) do |f| %>
   <%= f.input :title, class:"title"%>
   <%= f.input :comment, as: :text,  class:"comment" %>
-  <%= f.input :photo, as: :file, class:"photo" %>
+  <%= f.input :photo, as: :file, class: "photo", required: true %>
   <%= f.submit "Guardar", class:"boton" %>
 <% end %>

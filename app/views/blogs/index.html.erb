@@ -1,6 +1,9 @@
-<br><h1 style="text-align: center;">Lista de Blogs</h1><br>
+<div style="text-align: center;">
+  <%= link_to "Crear Blog", new_blog_path, class: "btn btn-primary mb-3" %>
+</div>
 
 <%# buscardor %>
+<br><h1 style="text-align: center;">Lista de Blogs</h1><br>
 <div class="search-container tm-row">
   <div class="row">
     <div class="col-12">
@@ -31,6 +34,18 @@
             <hr>
             <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
             <%= blog.user.first_name %> <%= blog.user.last_name %></span>
+
+            <br><% if blog.photo.present? %>
+                  <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" %>
+                <% else %>
+                  <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", style: 'width: 355px; height: auto;', class: "img-fluid" %>
+
+                <% end %>
+            <% if current_user == blog.user %>
+              <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
+              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
+            <% end %>
+
           </div>
         </div>
       </div>

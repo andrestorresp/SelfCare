@@ -59,6 +59,19 @@ def creacion_doctor(specialty, sap)
 end
 
 def creacion_diagnosis(diabetes, hypertension, tuberculosis, cancer, other_diseases, other_details)
+  # Obtener todos los IDs de los pacientes que ya tienen un diagnóstico
+  pacientes_con_diagnostico = Diagnosis.pluck(:patient_id)
+
+  # Obtener todos los IDs de los pacientes
+  todos_los_pacientes = Patient.pluck(:id)
+
+  # Excluir los IDs de los pacientes que ya tienen un diagnóstico
+  pacientes_sin_diagnostico = todos_los_pacientes - pacientes_con_diagnostico
+
+  # Seleccionar un paciente al azar de los que no tienen diagnóstico
+  paciente_id = pacientes_sin_diagnostico.sample
+
+  # Crear el diagnóstico
   diagnosis = Diagnosis.new(
     diabetes: diabetes,
     hypertension: hypertension,
@@ -66,7 +79,7 @@ def creacion_diagnosis(diabetes, hypertension, tuberculosis, cancer, other_disea
     cancer: cancer,
     other_diseases: other_diseases,
     other_details: other_details,
-    patient_id: Patient.pluck(:id).sample
+    patient_id: paciente_id
   )
 
   if diagnosis.save
@@ -80,7 +93,9 @@ end
 #Se crea un usuario y luego un paciente
 crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
 creacion_paciente()
-crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpeg')
+crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpg')
+creacion_paciente()
+crear_usuario("erika.azuaje2014@gmail.com", "12345678", false, "Erika", "Azuaje", "Polideportivo La Dolorita", 10.468863973857529, -66.76779921808335, 23631976, "04141256627", 25, 'app/assets/images/perfiles/Perfil_Erika.jpg')
 creacion_paciente()
 
 #A continuación son la creación de los usaurios y luego la creación de los doctores
@@ -92,14 +107,14 @@ crear_usuario("odreman@gmail.com", "12345678", true, "Crhistopher", "Odreman", "
 creacion_doctor("Dermatología", "6860439")
 crear_usuario("jacg182010@gmail.com", "12345678", true, "Jose", "Carrillo", "Guatire", 10.345151275851153, -67.04269880010001, 24043798, "5981631461", 28, 'app/assets/images/perfiles/Perfil_Carrillo.jpg')
 creacion_doctor("Ginecología", "8756395")
-crear_usuario("aronlista@gmail.com", "12345678", true, "Aron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
+crear_usuario("aronlista@gmail.com", "12345678", true, "Aaron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
 creacion_doctor("Ortopedia", "5467891")
-
 
 #Creación de los blogs
 blog1 = Blog.create!(
-  comment: "La práctica médica es un campo complejo que presenta una serie de desafíos éticos que los profesionales de la salud deben enfrentar día a día. Estos desafíos éticos abarcan una amplia gama de cuestiones, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, y son fundamentales para garantizar la integridad y la calidad de la atención médica.",
-  title: "Ética en medicina: Desafíos y soluciones",
+  comment: "
+  La práctica médica presenta desafíos éticos diversos que los profesionales deben abordar, desde la confidencialidad del paciente hasta la toma de decisiones al final de la vida, garantizando la integridad y la calidad de la atención.",
+  title: "Ética médica: Desafíos y soluciones",
   user_id: User.first.id
 )
 
@@ -109,7 +124,7 @@ puts "Blog 1 creado correctamente"
 
 blog2 = Blog.create!(
   comment: "Un término que antes parecía pertenecer a un futuro distante, se ha convertido en una realidad tangible que está revolucionando la forma en que recibimos atención médica en la era digital.",
-  title: "Telemedicina: atención en la era digital",
+  title: "Telemedicina en la era digital",
   user_id: User.second.id
 )
 
@@ -118,7 +133,7 @@ blog2.photo.attach(io: File.open('app/assets/images/blogs/Telemedicina.jpg'), fi
 puts "Blog 2 creado correctamente"
 
 blog3 = Blog.create!(
-  comment: "La pandemia de COVID-19 ha tenido un impacto profundo en la salud mental y el bienestar emocional tanto de los pacientes como de los profesionales de la salud en todo el mundo. Desde el inicio de la pandemia, hemos sido testigos de una amplia gama de respuestas psicológicas, que van desde el estrés y la ansiedad hasta la depresión y el trauma, tanto en aquellos que han contraído el virus como en aquellos que han sido afectados de otras maneras por sus ramificaciones.",
+  comment: "La pandemia de COVID-19 ha tenido un impacto significativo en la salud mental, provocando estrés, ansiedad, depresión y trauma en la sociedad. Este impacto refleja los desafíos generalizados que enfrentamos durante estos tiempos difíciles.",
   title: "Impacto psicológico de COVID-19",
   user_id: User.third.id
 )
@@ -128,7 +143,7 @@ blog3.photo.attach(io: File.open('app/assets/images/blogs/COVID.jpg'), filename:
 puts "Blog 3 creado correctamente"
 
 blog4 = Blog.create!(
-  comment: "La salud mental es un componente fundamental de la atención médica integral que no debe pasarse por alto. Si bien tradicionalmente se ha prestado más atención a las enfermedades físicas, cada vez más se reconoce que la salud mental desempeña un papel crucial en el bienestar general de un individuo.",
+  comment: "La salud mental es esencial en la atención médica integral. Aunque se enfoca más en la salud física, se reconoce su importancia para el bienestar general.",
   title: "Importancia de la salud mental",
   user_id: User.last.id
 )
@@ -137,19 +152,61 @@ blog4.photo.attach(io: File.open('app/assets/images/blogs/Salud_Mental.jpg'), fi
 
 puts "Blog 4 creado correctamente"
 
+blog5 = Blog.create!(
+  comment: "La vida saludable promueve una nutrición equilibrada, actividad física y técnicas de manejo del estrés para mejorar la calidad de vida y el bienestar general.",
+  title: "Vida Saludable Blog",
+  user_id: User.last.id
+)
+
+blog5.photo.attach(io: File.open('app/assets/images/blogs/Vida_Saludable.jpg'), filename: 'Vida_Saludable.jpg', content_type: 'image/jpeg')
+
+puts "Blog 5 creado correctamente"
+
+blog6 = Blog.create!(
+  comment: "Un enfoque holístico de la salud, combinando medicina alternativa y convencional. Incluye acupuntura, medicina herbal, yoga y meditación para el bienestar físico, mental y emocional.",
+  title: "Medicina Holística Blog",
+  user_id: User.last.id
+)
+
+blog6.photo.attach(io: File.open('app/assets/images/blogs/Medicina_Holistica.jpg'), filename: 'Medicina_Holistica.jpg', content_type: 'image/jpeg')
+
+puts "Blog 6 creado correctamente"
+
+blog7 = Blog.create!(
+  comment: "Un enfoque holístico de la salud integra prácticas alternativas y complementarias con la medicina convencional. Incluye acupuntura, medicina herbal, meditación, yoga y terapias holísticas para bienestar físico, mental y emocional.",
+  title: "Bandas de Resistencia Blog",
+  user_id: User.last.id
+)
+
+blog7.photo.attach(io: File.open('app/assets/images/blogs/Banda_Elastica.jpg'), filename: 'Banda_Elastica.jpg', content_type: 'image/jpeg')
+
+puts "Blog 7 creado correctamente"
+
+blog8 = Blog.create!(
+  comment: "Explora pesas tobilleras y muñequeras. Mejora tu entrenamiento, añade resistencia, fortalece músculos, consejos sobre peso y ejercicios. Alcanza metas fitness eficientemente. ¡Potencia tu entrenamiento ahora!",
+  title: "Guía de Tobilleras y Muñequeras",
+  user_id: User.last.id
+)
+
+blog8.photo.attach(io: File.open('app/assets/images/blogs/Munequera_Tobilleras.jpg'), filename: 'Munequera_Tobilleras.jpg', content_type: 'image/jpeg')
+
+puts "Blog 8 creado correctamente"
+
 def creacion_consultations(diagnostic)
+  patient_ids = Patient.pluck(:id)
+  doctor_ids = Doctor.pluck(:id)
+
   consultation = Consultation.new(
     diagnostic: diagnostic,
-    patient_id: Patient.pluck(:id).sample,
-    doctor_id: Doctor.pluck(:id).sample
+    patient_id: patient_ids.sample,
+    doctor_id: doctor_ids.sample
   )
 
   if consultation.save
-    puts "¡Diagnóstico creado exitosamente!"
+    puts "¡Consulta creada exitosamente!"
   else
-    puts "¡Error al crear el diagnóstico!"
+    puts "¡Error al crear la consulta!"
   end
-
 end
 
 creacion_consultations("La lesión en el tobillo derecho es un problema común que puede ocurrir debido a una variedad de razones, como torceduras, esguinces, fracturas o tensiones. Puede afectar a personas de todas las edades y niveles de actividad física.")
@@ -167,7 +224,7 @@ creacion_consultations("La ansiedad es una respuesta natural del cuerpo al estr�
 creacion_diagnosis(true, false, true, false, nil, nil)
 
 # Crear un diagnóstico para un paciente con cáncer y otras enfermedades
-creacion_diagnosis(false, false, false, true, "Asma", "Ninguna")
+creacion_diagnosis(false, false, false, true, "Padezco de Asma  desde los 5 años y de artritis desde una vez que fui senderista", "Cambios en el estado de salud desde el último chequeo médico")
 
 # Crear un diagnóstico para un paciente con hipertensión y otros detalles especificados
-creacion_diagnosis(false, true, false, false, nil, "Presión arterial alta, medicamentos recetados")
+creacion_diagnosis(false, true, false, false, "Sufro de Depresión, ansiedad, problemas cardíacos", "Síntomas específicos asociados con la condición médica. Presión arterial alta, medicamentos recetados")

@@ -14,8 +14,10 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find(params[:id]) # Busca el paciente
-    @user = User.find(@patient.user_id) # Encuentra el usuario asociado al paciente
+    @patient = Patient.find(params[:id])
+    @user = User.find(@patient.user_id)
+    @diagnosis = @patient.diagnosis
+
     @consultations = @patient.consultations
     @doctors = @consultations.map(&:doctor)
 
@@ -25,7 +27,14 @@ class PatientsController < ApplicationController
     end
   end
 
-
+  def buscar_px
+    if params[:query].present?
+      @patient = User.find_by(dni: params[:query]).patient.id
+      redirect_to patient_path(@patient)
+    else
+      redirect_to root_path
+    end
+  end
 
   def new
     @patient = Patient.new

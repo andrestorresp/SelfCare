@@ -3,6 +3,7 @@ class ConsultationsController < ApplicationController
   end
 
   def show
+    @consultation = Consultation.find(params[:id])
   end
 
   def edit
@@ -13,6 +14,9 @@ class ConsultationsController < ApplicationController
   def new
     @consultation = Consultation.new
   end
+
+  
+
 
   def create
     #Se busca el paciente

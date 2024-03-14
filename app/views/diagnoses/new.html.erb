@@ -1,30 +1,107 @@
-<div class="container">
-  <div>
-    <div class="card-header text-center pt-3 fs-2">
-      <h2>Registra tu antecedente</h2>
-    </div>
-    <div class="card-body container pb-3">
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    alert("PAsa por aquii la primera vez??")
+    const submitButton = document.getElementById("submit_button");
+    function handleCheckBoxPair(trueCheckbox, falseCheckbox) {
+        function checkBothCheckboxes() {
+            if (trueCheckbox.checked || falseCheckbox.checked) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+        trueCheckbox.addEventListener("change", function() {
+            if (trueCheckbox.checked) {
+                falseCheckbox.checked = false;
+            }
+            checkBothCheckboxes();
+        });
+        falseCheckbox.addEventListener("change", function() {
+            if (falseCheckbox.checked) {
+                trueCheckbox.checked = false;
+            }
+            checkBothCheckboxes();
+        });
+    }
+    const checkBoxPairs = document.querySelectorAll('.form-check-input[type="checkbox"]');
+    for (let i = 0; i < checkBoxPairs.length; i += 2) {
+        const trueCheckbox = checkBoxPairs[i];
+        const falseCheckbox = checkBoxPairs[i + 1];
+        handleCheckBoxPair(trueCheckbox, falseCheckbox);
+    }
+    checkBoxPairs.forEach(function(checkbox) {
+        checkbox.addEventListener("change", function() {
+            let allPairsChecked = true;
+            for (let i = 0; i < checkBoxPairs.length; i += 2) {
+                const trueCheckbox = checkBoxPairs[i];
+                const falseCheckbox = checkBoxPairs[i + 1];
+                if (!trueCheckbox.checked && !falseCheckbox.checked) {
+                    allPairsChecked = false;
+                    break;
+                }
+            }
+            if (allPairsChecked) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+    });
+
+});
+</script>
+
+<div class="body_in_form">
+  <div class="container_in_form body_in">
+    <div class="form-container sign-in-container">
       <%= simple_form_for [@patient, @diagnosis] do |f| %>
-        <div class="form-inputs">
+        <div class="form-inputs-register">
           <%= f.error_notification %>
-          <%= f.label :diabetes %>
-          <%= f.check_box :diabetes %>
-          <%= f.label :hypertension %>
-          <%= f.check_box :hypertension %>
-          <%= f.label :tuberculosis %>
-          <%= f.check_box :tuberculosis %>
-          <%= f.label :cancer %>
-          <%= f.check_box :cancer %>
-          <%= f.label :other_diseases %>
+          <table class="table table-bordered mt-3">
+            <tr>
+              <th>Condición:</th>
+              <th>Si</th>
+              <th>No</th>
+            </tr>
+            <tr>
+              <td><%= f.label :diabetes, "Diabetes" %></td>
+              <td><%= f.check_box :diabetes_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :diabetes_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :hypertension, "Hipertensión" %></td>
+              <td><%= f.check_box :hypertension_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :hypertension_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :tuberculosis, "Tuberculosis" %></td>
+              <td><%= f.check_box :tuberculosis_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :tuberculosis_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :cancer, "Cáncer" %></td>
+              <td><%= f.check_box :cancer_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :cancer_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+          </table>
+          <%= f.label :other_diseases, label: "Otras enfermedades", class:"form-control" %>
           <%= f.text_area :other_diseases %>
-          <%= f.label :other_details %>
-          <%= f.text_area :other_details %>
-          <%= f.submit %>
+          <%= f.label :other_details, label: "Otros detalles ", class:"form-control"  %>
+          <%= f.text_area :other_details, class:"mb-5" %>
         </div>
-        <div class="form-actions text-center">
-          <%= f.button :submit, "Registrar diagnóstico", class: "btn btn-primary" %>
-        </div>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-right">
+          <h1 class="pb-5">Registro de Ficha médica</h1>
+          <h4>Los datos de este formulario serán de vital impotancia para tu autocuidado</h4>
+          <p>Completa esta información y permítenos ofrecerte garantías en tu calidad de vida</p>
+          <div class="form-actions text-center">
+            <%= f.button :submit, "Registrar diagnóstico", class: "btn btn-primary", id:"submit_button",  disabled: true %>
       <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

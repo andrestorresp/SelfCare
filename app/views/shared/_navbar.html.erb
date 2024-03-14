@@ -12,17 +12,17 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? && current_user.role == false  %>
           <li class="nav-item active">
-            <%= link_to "home",  root_path, class: "nav-link text-white" %>
+            <%= link_to "Home",  root_path, class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
             <%= link_to "Blogs",  blogs_path , class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
-            <%= link_to "doctors",  doctors_path , class: "nav-link text-white" %>
+            <%= link_to "Doctors",  doctors_path , class: "nav-link text-white" %>
           </li>
         <% elsif user_signed_in? && current_user.role == true  %>
           <li class="nav-item active">
-            <%= link_to "home",  root_path, class: "nav-link text-white" %>
+            <%= link_to "Home",  root_path, class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
             <%= link_to "Blogs",  blogs_path , class: "nav-link text-white" %>
@@ -32,33 +32,35 @@
             <%= link_to "Iniciar sesión",  new_user_session_path, class: "nav-link text-white" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "home",  root_path, class: "nav-link text-white" %>
+            <%= link_to "Home",  root_path, class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
             <%= link_to "Blogs",  blogs_path , class: "nav-link text-white" %>
           </li>
         <%end  %>
-
+        <!--!!!!!!!!!!!!!!!¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡-->
+        <!--VISUALIZAR EL ESTILO DE ESTO Dropdown PORQUE ESTA FEO-->
+        <!--!!!!!!!!!!!!!!!¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡-->
         <% if user_signed_in? && current_user.role == false  %>
-          <li class="nav-item dropdown z-5">
+          <li class="nav-item dropdown" style="margin:10px;">
             <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mi perfil", patient_path(current_user.patient)%>
-              <%= link_to "Editar perfil", edit_user_registration_path , class: "dropdown-item" %>
-              <%= link_to "Cerrar sesión", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
+            <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
+              <%= link_to "Mi perfil", patient_path(current_user.patient), class: "dropdown-item text-light" %>
+              <%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item text-light" %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path, class: "dropdown-item text-light", data: {turbo_method: :delete} %>
             </div>
           </li>
-        <% elsif user_signed_in? && current_user.role == true %>
-          <li class="nav-item dropdown z-5">
-            <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mi perfil", doctor_path(current_user.doctor)%>
-              <%= link_to "Editar perfil", edit_user_registration_path , class: "dropdown-item" %>
-              <%= link_to "Cerrar sesión", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
+          <% elsif user_signed_in? && current_user.role == true %>
+            <li class="nav-item dropdown" style="margin:10px;">
+              <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
+              <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
+                <%= link_to "Mi perfil", doctor_path(current_user.doctor), class: "dropdown-item text-light" %>
+                <%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item text-light" %>
+                <%= link_to "Cerrar sesión", destroy_user_session_path, class: "dropdown-item text-light", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% end %>
 
-        <%end  %>
       </ul>
     </div>
     </div>
