@@ -1,18 +1,12 @@
 
 .btn {
   font-size:15px;
-  font-family:Arial;
+  font-family: Montserrat;
   width: auto;
-  height:37px;
-  border-width:1px;
+  height: auto;
   color: var(--title-color);
-  border-color:#18ab29;
-  font-weight:bold;
-  border-top-left-radius:27px;
-  border-top-right-radius:27px;
-  border-bottom-left-radius:27px;
-  border-bottom-right-radius:27px;
-  text-shadow: 1px 1px 0px #2f6627;
+  border-radius: 27px;
+  
   background: var(--bottom-color);
 }
 

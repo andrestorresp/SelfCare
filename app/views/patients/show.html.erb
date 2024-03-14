@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="bgcolor">
   <div class="col-md-6">
     <div class="card card_profile p-4" style="text-align: center;">
       <% if @user.photo.attached? %>
@@ -25,7 +25,7 @@
     <div>
       <div class="card card-consultations p-4">
         <h1>Consultas del Paciente</h1>
-        <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn btn-success mb-3 rounded-pill' %>
+        <%= link_to 'Crear Consulta', new_patient_consultation_path(@patient, @doctor), class: 'btn' %>
       </div>
         <% if @consultations.any? %>
           <ul class="list-group">
@@ -35,7 +35,7 @@
                 <li class="list-group-item lista-gab"><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></li>
                 <li class="list-group-item lista-gab"><strong>Fecha de Actualización:</strong> <%= consultation.updated_at.strftime("%Y-%m-%d %H:%M") %></li>
                 <li class="list-group-item lista-gab"><strong>Doctor:</strong> <%= consultation.doctor.full_name %></li>
-                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn btn-primary btn-sm rounded-pill' %>
+                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn' %>
             </div>
             <% end %>
           </ul>
@@ -45,4 +45,3 @@
     </div>
   </div>
 </div>
-
