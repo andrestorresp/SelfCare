@@ -33,8 +33,9 @@ class DiagnosesController < ApplicationController
     elsif params[:diagnosis][:cancer_false] == "1"
       @diagnosis.cancer = false
     end
+
     if @diagnosis.save!
-      redirect_to patient_path(@patient)
+      redirect_to patient_path(params[:patient_id])
     else
       render :new, status: :unprocessable_entity
     end
