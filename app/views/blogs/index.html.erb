@@ -1,22 +1,41 @@
 <div style="text-align: center;">
   <%= link_to "Crear Blog", new_blog_path, class: "btn btn-primary mb-3" %>
 </div>
-</br><h1 style="text-align: center;">Lista de Blogs</h1></br>
 
-<div class="blog-container">
+<%# buscardor %>
+<br><h1 style="text-align: center;">Lista de Blogs:</h1><br>
+<div class="search-container tm-row">
+  <div class="row">
+    <div class="col-12">
+      <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+      <button class="tm-search-button" type="submit">
+        <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="blog-container tm-row pb-5">
   <div class="row">
     <% @blogs.each do |blog| %>
-      <div class="col-4 mb-3">
+      <div class="col-12 col-md-4 mb-3">
+        <hr class="tm-hr-primary">
         <div class="card blogs-border">
           <div class="card-body">
-            <h5 class="card-blog-title"><%= blog.title %></h5>
-            <div class="card-text-container">
-              <p class="card-text-full"><%= blog.comment %></p>
-              <p class="card-text-short" style="display: none;"><%= blog.comment.truncate(85) %></p>
-              <a class="text-primary see-more vermas">Ver más</a>
+            <div class="tm-post-link-inner">
+              <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 500px; height: 223px;', class: "img-fluid" if blog.photo.present? %>
             </div>
+            <hr>
+            <div class="d-flex align-items-center" style="height: 65px;">
+            <h5 class="mb-0 tm-color-primary tm-post-title"><%= blog.title %></h5>
+            </div>
+            <p style="height: 160px"><%= blog.comment %></p>
+            <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
+            <hr>
+            <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
+            <%= blog.user.first_name %> <%= blog.user.last_name %></span>
 
-            </br><% if blog.photo.present? %>
+            <br><% if blog.photo.present? %>
                   <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" %>
                 <% else %>
                   <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", style: 'width: 355px; height: auto;', class: "img-fluid" %>
@@ -27,51 +46,9 @@
               <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
             <% end %>
 
-            <hr style="border-top: 1px solid #ccc;">
-              <div class="text-muted">
-                <%= cl_image_tag blog.user.photo.key, class: "profile-picture" , id: "navbarDropdown"%>
-                <%= blog.user.first_name %> <%= blog.user.last_name %>
-              </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<script>
-const seeMoreButtons = document.querySelectorAll(".see-more");
-
-seeMoreButtons.forEach((button) => {
-  const cardTextFull = button.parentNode.querySelector(".card-text-full");
-  const cardTextShort = button.parentNode.querySelector(".card-text-short");
-  const localStorageKey = `comment-${button.dataset.commentId}`;
-  let isExpanded = localStorage.getItem(localStorageKey) === "true";
-
-  if (isExpanded) {
-    cardTextFull.style.display = "block";
-    cardTextShort.style.display = "none";
-    button.textContent = "Ver menos";
-  } else {
-    cardTextFull.style.display = "none";
-    cardTextShort.style.display = "block";
-    button.textContent = "Ver más";
-  }
-
-  button.addEventListener("click", (event) => {
-    if (isExpanded) {
-      cardTextFull.style.display = "none";
-      cardTextShort.style.display = "block";
-      button.textContent = "Ver más";
-      isExpanded = false;
-      localStorage.setItem(localStorageKey, "false");
-    } else {
-      cardTextFull.style.display = "block";
-      cardTextShort.style.display = "none";
-      button.textContent = "Ver menos";
-      isExpanded = true;
-      localStorage.setItem(localStorageKey, "true");
-    }
-  });
-});
-</script>
