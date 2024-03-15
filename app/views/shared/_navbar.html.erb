@@ -54,7 +54,9 @@
             <li class="nav-item dropdown" style="margin:10px;">
               <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
               <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
-                <%= link_to "Mi perfil", doctor_path(current_user.doctor), class: "dropdown-item text-light" %>
+              <% unless current_user.doctor.nil? %>
+                <%= link_to "Mi perfil", doctor_path(current_user&.doctor), class: "dropdown-item text-light" %>
+              <% end %>
                 <%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item text-light" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, class: "dropdown-item text-light", data: {turbo_method: :delete} %>
               </div>

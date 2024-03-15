@@ -6,40 +6,58 @@
         <h2 class="text-center mt-3">¡Registrarse ahora!</h2>
         <div class="form-inputs-registration">
           <%= f.input :first_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "first_name" }%>
-          <%= f.input :last_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "last_name" }%>
-          <%= f.input :age,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "Age" }%>
-          <%= f.input :dni,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "DNI" }%>
-          <%= f.input :phone_number,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "phone_number" }%>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :role, collection: [['Paciente', false ],[ 'Doctor', true]], prompt: 'Seleccione un rol' %>
-          <%= f.input :photo, as: :file %>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <div class="form-actions text-center">
-            <%= f.button :submit, "Registrarse", class:"btn btn-primary" %>
+            label: "Nombre",
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "first_name" } %>
+            <%= f.input :last_name,
+                        label: "Apellido",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "last_name" } %>
+            <%= f.input :age,
+                        label: "Edad",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Age" } %>
+            <%= f.input :dni,
+                        label: "DNI",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "DNI" } %>
+            <%= f.input :phone_number,
+                        label: "Número de Teléfono",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "phone_number" } %>
+            <%= f.input :address,
+                        label: "Dirección",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "address" } %>
+            <%= f.input :email,
+                        label: "Correo Electrónico",
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :role,
+                        label: "Rol",
+                        collection: [['Paciente', false], ['Doctor', true]],
+                        prompt: 'Seleccione un rol' %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :password,
+                        label: "Contraseña",
+                        required: true,
+                        hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        label: "Confirmar Contraseña",
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+            <div class="form-actions text-center">
+              <%= f.button :submit, "Registrarse", class: "btn btn-primary" %>
+            </div>
+
           </div>
         </div>
       <% end %>
