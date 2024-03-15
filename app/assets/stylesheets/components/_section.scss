@@ -142,7 +142,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-bottom: 100px;
 }
 #about-us img{
   width: 70%;
@@ -155,5 +154,30 @@
 }
 .col h1{
   color: #1e593e;
-  font-size: 80px;
+  font-size: 60px;
+  line-height: 1;
+}
+
+/*mencantil seguros*/
+#mercantil{
+  width: 1130px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 7%;
+  background-color: #AABFB9;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#mercantil img{
+  width: 70%;
+  height: 420px;
+  border-radius: 7%;
+}
+
+/*sabias que*/
+#sabias{
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
 }
