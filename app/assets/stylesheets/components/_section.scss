@@ -113,6 +113,7 @@
       letter-spacing: 1px;
   }
   .card__text {
+      color: #fff;
       line-height: 1.5;
   }
   .card__content{
@@ -126,7 +127,7 @@
   }
   .card:hover .card__content {
       display: block;
-      background-color: #1c92e08f;
+      background-color: #038C4C;
       height: 420px;
       width: 100%;
       border-radius: 20px;
