@@ -12,6 +12,8 @@
               params[:query],
               class: "searchTerm",
               placeholder: "Cedula, Pasaporte, DNI..."
+              pattern: "[0-9]*",
+              title: "Por favor, ingrese solo números..."
           %>
           <%#= submit_tag class: "searchButton" %>
           <i class="fa fa-search"></i>
