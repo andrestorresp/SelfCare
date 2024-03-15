@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <%= link_to "Crear Blog", new_blog_path, class: "btn btn-primary mb-3" %>
+  <%= link_to "Crear Blog", new_blog_path, class: "btn mb-3" %>
 </div>
 
 <%# buscardor %>
@@ -36,8 +36,8 @@
             <p style="height: 160px"><%= blog.comment %></p>
 
             <% if current_user == blog.user %>
-              <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
-              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
+              <%= link_to "Actualizar", edit_blog_path(blog), class: "btn" %>
+              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn'%>
             <% end %>
 
             <hr>
