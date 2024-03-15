@@ -24,7 +24,7 @@
           <div class="card-body">
             <div class="tm-post-link-inner">
               <% if blog.photo.present? %>
-                <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 355px; height: auto;', class: "img-fluid" %>
+                <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 500px; height: 223px;', class: "img-fluid" if blog.photo.present? %>
               <% else %>
                 <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", style: 'width: 355px; height: auto;', class: "img-fluid" %>
               <% end %>
@@ -34,16 +34,16 @@
             <h5 class="mb-0 tm-color-primary tm-post-title"><%= blog.title %></h5>
             </div>
             <p style="height: 160px"><%= blog.comment %></p>
-            <hr>
-            <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
-            <%= blog.user.first_name %> <%= blog.user.last_name %></span>
-
-            <br>
 
             <% if current_user == blog.user %>
               <%= link_to "Actualizar", edit_blog_path(blog), class: "btn btn-primary" %>
               <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn btn-primary'%>
             <% end %>
+
+            <hr>
+
+            <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
+            <%= blog.user.first_name %> <%= blog.user.last_name %></span>
 
           </div>
         </div>
