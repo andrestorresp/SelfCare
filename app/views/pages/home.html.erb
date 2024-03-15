@@ -17,13 +17,13 @@
             placeholder: "Cedula, Pasaporte, DNI..."
         %>
       <%#= submit_tag class: "searchButton" %>
-      <span><i class="fa fa-search"></i></span>
+      <i class="fa fa-search"></i>
     <% end %>
       <p>Se debera ingresar UN dato numerico de identificación </p>
     <% else %>
       <h1>SELFCARE</h1>
       <p>El cuidado de tu historial medico <br>en tus manos.</p>
-      <button class="btn">Registrate</button>
+      <%= link_to "Registrarse", new_user_registration_path, class:"btn"%>
       <% end  %>
   </div>
 </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Recetas</h2>
-        <p class="card__text">Lorem ipsum dolor sit amet consectetur    adipisicing elit nulla cumque. massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper.</p>
+        <p class="card__text">"El desayuno es la comidmass importante del dia", es la frase mas escuchada... visita nuestro blo</p>
     </div>
     </div>
     <div class="card card-item-02">
