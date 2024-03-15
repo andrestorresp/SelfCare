@@ -19,8 +19,13 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find(params[:id]) # Busca el paciente
-    @user = User.find(@doctor.user_id) # Encuentra el usuario asociado al paciente
+    @doctor = Doctor.find(params[:id])
+    @user = User.find(@doctor.user_id)
+
+    # Asegúrate de que el usuario tenga la geolocalización (latitude y longitude) antes de intentar mostrarla
+    if @user.latitude.present? && @user.longitude.present?
+      @marker = { lat: @user.latitude, lng: @user.longitude }
+    end
   end
 
   def create

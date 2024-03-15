@@ -23,6 +23,10 @@
   <!--!!!!!ESTO ES DONDE ESTARÍA EL MAPA DEL DOCTOR¡¡¡¡¡-->
   <!--!!!!!LO QUE ESTA EN LA LÍNEA 21 ES LO QUE GENERA EL COLOR DE bg-warning EL COLOR NARANJA ES ESA INSTRUCCIÓN¡¡¡¡¡-->
   <div class="col-md-6 ml-3 bg-warning">
-    <p>Algo aqui del mapa</p>
+    <div style="width: 100%; height: 500px;"
+     data-controller="map"
+     data-map-markers-value="<%= [@marker].compact.to_json %>"
+     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>

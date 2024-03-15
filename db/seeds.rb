@@ -91,24 +91,31 @@ end
 
 #Observar bien para alguna modificación
 #Se crea un usuario y luego un paciente
-crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 28154771, "1234567890", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
+crear_usuario("alvarorg2111@gmail.com", "12345678", false, "Alvaro", "Raga", "Centro Comercial, Casa bera Av. Urdaneta, Caracas 1020, Distrito Capital", 10.50625135218911, -66.90403438896753, 28154771, "0414-1234567", 22, 'app/assets/images/perfiles/Perfil_Alvaro.jpg')
 creacion_paciente()
-crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Monte Bello Plaza", 10.36859487233048, -66.99592860600289, 28921249, "04140156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpg')
+crear_usuario("alberto.manrique99@gmail.com", "12345678", false, "Gabriel", "Manrique", "Municipio Carrizal 1203, Miranda", 10.36859487233048, -66.99592860600289, 28921249, "0414-0156629", 25, 'app/assets/images/perfiles/Perfil_Gabriel.jpg')
 creacion_paciente()
-crear_usuario("erika.azuaje2014@gmail.com", "12345678", false, "Erika", "Azuaje", "Polideportivo La Dolorita", 10.468863973857529, -66.76779921808335, 23631976, "04141256627", 25, 'app/assets/images/perfiles/Perfil_Erika.jpg')
+crear_usuario("erika.azuaje2014@gmail.com", "12345678", false, "Erika", "Azuaje", "Carr. Petare - Sta. Lucía, Caracas 1073, Distrito Capital", 10.468863973857529, -66.76779921808335, 23631976, "0414-1256627", 25, 'app/assets/images/perfiles/Perfil_Erika.jpg')
 creacion_paciente()
 
 #A continuación son la creación de los usaurios y luego la creación de los doctores
-crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
-creacion_doctor("Traumatologo", "8190851")
-crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Monte Bello Plaza", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
-creacion_doctor("Pediatria", "6460253")
-crear_usuario("odreman@gmail.com", "12345678", true, "Crhistopher", "Odreman", "Guatire", 10.46388043559612, -66.51913724232891, 26809648, "2347654321", 25, 'app/assets/images/perfiles/Perfil_Crhistopher.jpg')
-creacion_doctor("Dermatología", "6860439")
-crear_usuario("jacg182010@gmail.com", "12345678", true, "Jose", "Carrillo", "Guatire", 10.345151275851153, -67.04269880010001, 24043798, "5981631461", 28, 'app/assets/images/perfiles/Perfil_Carrillo.jpg')
-creacion_doctor("Ginecología", "8756395")
-crear_usuario("aronlista@gmail.com", "12345678", true, "Aaron", "Lista", "San Antonio", 10.37491209115916, -66.9617740204026, 28017502, "8801631461", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
-creacion_doctor("Ortopedia", "5467891")
+crear_usuario("leonardocabrices1@gmail.com", "12345678", true, "Leonardo", "Parra", "Centro Comercial, Casa bera Av. Urdaneta, Caracas 1020, Distrito Capital", 10.50625135218911, -66.90403438896753, 26466787, "0987654321", 25, 'app/assets/images/perfiles/Perfil_Leonardo.png')
+creacion_doctor("Traumatología", "8190967")
+crear_usuario("dragotorres16@gmail.com", "12345678", true, "Andres", "Torres", "Avenida Principal de Las Polonias Viejas, centro comercial montebello, Municipio Carrizal 1203, Miranda", 10.359272059129669, -66.97594958444186, 25562969, "1122334455", 27, 'app/assets/images/perfiles/Perfil_Andres.jpg')
+creacion_doctor("Pediatría", "4720361")
+crear_usuario("odreman@gmail.com", "12345678", true, "Crhistopher", "Odreman", "Av. Principal De Las Rosas, Guatire 1221, Miranda", 10.46388043559612, -66.51913724232891, 26809648, "2347654321", 25, 'app/assets/images/perfiles/Perfil_Crhistopher.jpg')
+creacion_doctor("Cardiología", "6983572")
+crear_usuario("jacg182010@gmail.com", "12345678", true, "Jose", "Carrillo", "C. Ribas, Los Teques 1201, Miranda", 10.345151275851153, -67.04269880010001, 24043798, "5981631461", 28, 'app/assets/images/perfiles/Perfil_Carrillo.jpg')
+creacion_doctor("Ginecología", "8195743")
+crear_usuario("aronlista@gmail.com", "12345678", true, "Aaron", "Lista", "San Antonio de Los Altos 1204, Miranda", 10.37491209115916, -66.9617740204026, 28017502, "0424-9876543", 22, 'app/assets/images/perfiles/Perfil_Aron.jpg')
+creacion_doctor("Medicina General", "5467891")
+crear_usuario("javiergalviz@gmail.com", "12345678", true, "Javier", "Galviz", "Av. 9 de Julio s/n, C1043 Buenos Aires, Argentina", -34.60357550119154, -58.38157040372827, 28324815, "+54 9 11 1234-5678", 23, 'app/assets/images/perfiles/Perfil_Javier.jpg')
+creacion_doctor("Cirugía General", "3269214")
+crear_usuario("genesisrodriguez@gmail.com", "12345678", true, "Genesis", "Rodriguez", "Cra. 7 #N. 28-66, Bogotá, Colombia", 4.615682752832807, -74.06859698328122, 27439547, "+57 1 234 5678", 25, 'app/assets/images/perfiles/Perfil_Genesis.jpg')
+creacion_doctor("Traumatología", "7618459")
+crear_usuario("yonathanpalma@gmail.com", "12345678", true, "Yonathan", "Palma", "C2P7+2RC, Av. Principal de Caricuao, Caracas 1000, Distrito Capital", 10.435217817799911, -66.98547061614683, 27607340, "8801631461", 30, 'app/assets/images/perfiles/Perfil_Yonathan.jpg')
+creacion_doctor("Pediatría", "2359187")
+
 
 #Creación de los blogs
 blog1 = Blog.create!(
