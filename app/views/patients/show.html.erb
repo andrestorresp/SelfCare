@@ -44,7 +44,7 @@
       </div>
         <% if @consultations.any? %>
           <ul class="list-group">
-            <% @consultations.each do |consultation| %>
+            <% @patient.consultations.order('created_at DESC').each do |consultation| %>
             <div class="card card-consultations p-4">
                 <li class="list-group-item lista-gab"><strong>Diagnóstico:</strong> <%= consultation.diagnostic %></li>
                 <li class="list-group-item lista-gab"><strong>Fecha del Diagnóstico:</strong> <%= consultation.created_at.strftime("%Y-%m-%d %H:%M") %></li>
