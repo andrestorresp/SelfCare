@@ -6,25 +6,23 @@
       <button class="btn">Buscar medicos</button>
     <% elsif user_signed_in? && current_user.role == true   %>
       <h2 id="titulodoc">Ingrese datos del Px</h2>
-      <input type="text" class="searchTerm" placeholder="Cedula, Pasaporte, DNI...">
-      <button type="submit" class="searchButton">
-      <i class="fa fa-search"></i>
-      </button>
       <%= form_with url: buscar_path(), method: :get , id:"buscador"  do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "searchTerm",
-            placeholder: "Cedula, Pasaporte, DNI..."
-        %>
-      <%#= submit_tag class: "searchButton" %>
-      <i class="fa fa-search"></i>
-    <% end %>
+        <div class="lupa">
+          <%= text_field_tag :query,
+              params[:query],
+              class: "searchTerm",
+              placeholder: "Cedula, Pasaporte, DNI..."
+          %>
+          <%#= submit_tag class: "searchButton" %>
+          <i class="fa fa-search"></i>
+        </div>
+      <% end %>
       <p>Se debera ingresar UN dato numerico de identificación </p>
     <% else %>
       <h1>SELFCARE</h1>
       <p>El cuidado de tu historial medico <br>en tus manos.</p>
       <%= link_to "Registrarse", new_user_registration_path, class:"btn"%>
-      <% end  %>
+    <% end  %>
   </div>
 </div>
 
@@ -46,7 +44,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Ejercicios</h2>
-        <p class="card__text">Lorem ipsum dolor sit amet consectetur    adipisicing elit nulla cumque. massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper.</p>
+        <p class="card__text">El ejercicio y la actividad física son buenos para casi todas las personas, incluyendo las personas mayores. Independientemente de su salud y sus capacidades físicas, puede beneficiarse haciendo actividad física regularmente</p>
     </div>
     </div>
     <div class="card card-item-03">
@@ -55,7 +53,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Doctores</h2>
-        <p class="card__text">Lorem ipsum dolor sit amet consectetur    adipisicing elit nulla cumque. massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper.</p>
+        <p class="card__text">Los doctores desempeñan un papel fundamental en la atención médica y el bienestar de las personas, Los doctores evalúan los síntomas, realizan exámenes y pruebas, y utilizan su experiencia para diagnosticar enfermedades y afecciones. Luego, prescriben tratamientos adecuados, como medicamentos, terapias o cirugías.</p>
     </div>
     </div>
   </div>
@@ -64,7 +62,7 @@
 <!--seccion de sobre nosotros-->
 <section id="about-us" class="alt">
   <div class="row align-items-center">
-    <div class="col">
+    <div class="col" id="chica">
       <img src="https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid" alt="About Us">
     </div>
   <div class="col text-col">
@@ -78,11 +76,11 @@
 <!--mercantil seguros-->
 <section id="mercantil" class="alt">
   <div class="row align-items-center">
-    <div class="col">
+    <div class="col" id="merca">
       <img src="https://www.segurosmcr.com/wp-content/uploads/2021/08/Seguros-Mercantil-v2.png" class="img-fluid" alt="About Us">
     </div>
-  <div class="col text-col">
-    <h2>conoces los beneficios de Mercantil seguros?</h2>
+  <div class="col text-col" id="mercantiltexto">
+    <h2>Conoces los beneficios <br>de Mercantil seguros?</h2>
     <p>Protege a tus seres queridos cuando ya no estés. Los beneficiarios que elijas recibirán el monto de la suma asegurada si falleces de forma accidental o natural. También te servirá de apoyo en caso de resultar incapacitado</p>
     <p>Mercantil Seguros es hoy líder en Venezuela. Nuestro propósito es entender las necesidades de los venezolanos, y enfocarnos en diseñar productos para ellos, con el respaldo de un equipo altamente profesional y comprometido, e invirtiendo en la transformación digital, garantizando la calidad del servicio a nuestros clientes.</p>
   </div>

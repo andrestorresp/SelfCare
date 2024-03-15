@@ -1,5 +1,5 @@
 .banner{
-  margin-top: -87px;
+  margin-top: -100px;
   width: 100%;
   height: 100vh;
 
@@ -11,7 +11,6 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-bottom-left-radius: 7%;
   border-bottom-right-radius: 7%;
-  z-index: 10;
 }
 
 .text-center{
@@ -36,14 +35,15 @@
 
 /*barra de busqueda*/
 .searchTerm {
-  width: 80%;
-  border: 3px solid var(--bottom-color);
-  border-right: none;
-  padding: 5px;
-  height: 50px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
+    width: 100%;
+    /* border: 3px solid var(--bottom-color); */
+    /* border-right: none; */
+    /* padding: 5px; */
+    height: 100%;
+    border-radius: 15px;
+    outline: none;
+    color: #9DBFAF;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.25);
 }
 .searchTerm:focus{
   color: var(--bottom-color);
@@ -62,10 +62,29 @@
   font-size: 18px;
 }
 #buscador{
-  width: 80%;
-  height: 50px;
-  background: transparent;
+  width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background: transparent;
 }
+.lupa{
+  width: 80%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+i.fa.fa-search {
+  position: absolute;
+  right: 15px;
+}
+
 /*parrafo general*/
 .text-center p{
   width: 100%;
@@ -95,10 +114,10 @@
 
   .card {
       color: #fff;
-      cursor: pointer;
-      position: relative;
+      /*position: relative;*/
       border-radius: 20px;
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      transition: .3s all ease-in-out;
   }
   .card__image {
       width: 100%;
@@ -121,16 +140,21 @@
       position: absolute;
       top: 0;
       padding: 20px;
+      transition: .3s all ease-in-out;
   }
   .card__content{
       display: none;
   }
   .card:hover .card__content {
       display: block;
-      background-color: #038C4C;
+      background-color: #038c4c9c;
       height: 420px;
       width: 100%;
       border-radius: 20px;
+      transition: .3s all ease-in-out;
+  }
+  .card:hover{
+    transform: scale(1.05);
   }
 }
 
@@ -148,6 +172,12 @@
   height: 420px;
   border-radius: 7%;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  object-fit: cover;
+}
+#chica{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .title{
   width: 550px;
@@ -157,6 +187,9 @@
   font-size: 60px;
   line-height: 1;
 }
+.col p{
+  color: #252525;
+}
 
 /*mencantil seguros*/
 #mercantil{
@@ -165,14 +198,26 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 7%;
-  background-color: #AABFB9;
+  border-radius: 15px;
+  background-color: #1e593e;
+  background-image: linear-gradient(19deg, #AABFB9 0%, #1e593e 100%);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 #mercantil img{
   width: 70%;
-  height: 420px;
-  border-radius: 7%;
+  height: 210px;
+}
+#merca{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mercantiltexto h2{
+  color: #fff;
+  font-family: Merriweather;
+  font-size: 40px;
+  line-height: 1;
+padding-top: 20px;
 }
 
 /*sabias que*/
