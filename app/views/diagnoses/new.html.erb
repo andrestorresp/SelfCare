@@ -1,3 +1,59 @@
+<div class="body_in_form">
+  <div class="container_in_form body_in">
+    <div class="form-container sign-in-container">
+      <%= simple_form_for [@patient, @diagnosis] do |f| %>
+        <div class="form-inputs-register">
+          <%= f.error_notification %>
+          <table class="table table-bordered mt-5">
+            <tr>
+              <th>Condición:</th>
+              <th>Si</th>
+              <th>No</th>
+            </tr>
+            <tr>
+              <td><%= f.label :diabetes, "Diabetes" %></td>
+              <td><%= f.check_box :diabetes_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :diabetes_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :hypertension, "Hipertensión" %></td>
+              <td><%= f.check_box :hypertension_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :hypertension_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :tuberculosis, "Tuberculosis" %></td>
+              <td><%= f.check_box :tuberculosis_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :tuberculosis_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :cancer, "Cáncer" %></td>
+              <td><%= f.check_box :cancer_true, class: "form-check-input checkbox-green " %></td>
+              <td><%= f.check_box :cancer_false, class: "form-check-input checkbox-red " %></td>
+            </tr>
+          </table>
+          <%= f.label :other_diseases, label: "Otras enfermedades", class:"form-control" %>
+          <%= f.text_area :other_diseases %>
+          <%= f.label :other_details, label: "Otros detalles ", class:"form-control"  %>
+          <%= f.text_area :other_details, class:"mb-5" %>
+        </div>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-right">
+          <h1 class="pb-5">Registro de Ficha médica</h1>
+          <h4>Los datos de este formulario serán de vital impotancia para tu autocuidado</h4>
+          <p>Completa esta información y permítenos ofrecerte garantías en tu calidad de vida</p>
+          <div class="form-actions text-center">
+            <%= f.button :submit, "Registrar diagnóstico",  class: "btn btn-primary", id:"submit_button",  disabled: true %>
+      <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const submitButton = document.getElementById("submit_button");
@@ -49,58 +105,3 @@
 
 });
 </script>
-
-<div class="body_in_form">
-  <div class="container_in_form body_in">
-    <div class="form-container sign-in-container">
-      <%= simple_form_for [@patient, @diagnosis] do |f| %>
-        <div class="form-inputs-register">
-          <%= f.error_notification %>
-          <table class="table table-bordered mt-5">
-            <tr>
-              <th>Condición:</th>
-              <th>Si</th>
-              <th>No</th>
-            </tr>
-            <tr>
-              <td><%= f.label :diabetes, "Diabetes" %></td>
-              <td><%= f.check_box :diabetes_true, class: "form-check-input checkbox-green " %></td>
-              <td><%= f.check_box :diabetes_false, class: "form-check-input checkbox-red " %></td>
-            </tr>
-            <tr>
-              <td><%= f.label :hypertension, "Hipertensión" %></td>
-              <td><%= f.check_box :hypertension_true, class: "form-check-input checkbox-green " %></td>
-              <td><%= f.check_box :hypertension_false, class: "form-check-input checkbox-red " %></td>
-            </tr>
-            <tr>
-              <td><%= f.label :tuberculosis, "Tuberculosis" %></td>
-              <td><%= f.check_box :tuberculosis_true, class: "form-check-input checkbox-green " %></td>
-              <td><%= f.check_box :tuberculosis_false, class: "form-check-input checkbox-red " %></td>
-            </tr>
-            <tr>
-              <td><%= f.label :cancer, "Cáncer" %></td>
-              <td><%= f.check_box :cancer_true, class: "form-check-input checkbox-green " %></td>
-              <td><%= f.check_box :cancer_false, class: "form-check-input checkbox-red " %></td>
-            </tr>
-          </table>
-          <%= f.label :other_diseases, label: "Otras enfermedades", class:"form-control" %>
-          <%= f.text_area :other_diseases %>
-          <%= f.label :other_details, label: "Otros detalles ", class:"form-control"  %>
-          <%= f.text_area :other_details, class:"mb-5" %>
-        </div>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-right">
-          <h1 class="pb-5">Registro de Ficha médica</h1>
-          <h4>Los datos de este formulario serán de vital impotancia para tu autocuidado</h4>
-          <p>Completa esta información y permítenos ofrecerte garantías en tu calidad de vida</p>
-          <div class="form-actions text-center">
-            <%= f.button :submit, "Registrar diagnóstico", class: "btn btn-primary", id:"submit_button",  disabled: true %>
-      <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

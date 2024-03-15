@@ -8,6 +8,7 @@ class DiagnosesController < ApplicationController
   def create
     @patient = Patient.find(params[:patient_id])
     @diagnosis = Diagnosis.new(diagnoses_params)
+    @diagnosis.patient = @patient
 
     if params[:diagnosis][:diabetes_true] == "1"
       @diagnosis.diabetes = true
@@ -32,7 +33,6 @@ class DiagnosesController < ApplicationController
     elsif params[:diagnosis][:cancer_false] == "1"
       @diagnosis.cancer = false
     end
-
     if @diagnosis.save!
       redirect_to patient_path(@patient)
     else
