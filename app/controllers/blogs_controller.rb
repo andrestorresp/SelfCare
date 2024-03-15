@@ -3,13 +3,11 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy]
 
   def index
-
     @blogs = Blog.all
 
-    # if params[:query].present?
-    #   @blogs = Blog.blog_search(params[:query])
-
-    # end
+    if params[:query].present?
+      @blogs = Blog.search_blog(params[:query])
+    end
   end
 
   def show

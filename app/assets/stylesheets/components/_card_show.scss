@@ -1,0 +1,60 @@
+.blog-cardd-container {
+  border-radius: 5px;
+}
+
+.user-details-container {
+  height: 89px;
+  width: 320px;
+  padding: 0;
+  border-radius: 15px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+}
+
+.user-info {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.comments-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comments-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.image {
+  height: 313px;
+  width: 205px;
+}
+
+.title-3{
+  text-align: center;
+}
+
+.texto-cardd{
+  text-align: justify;
+  height: 125px;}
+
+.imagen-cuadrada {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+}
+
+.tarjeta-perfil{
+  padding: 0.5rem !important;
+}

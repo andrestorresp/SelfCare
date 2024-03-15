@@ -1,18 +1,16 @@
-<div style="text-align: center;">
-  <%= link_to "Crear Blog", new_blog_path, class: "btn mb-3" %>
-</div>
-
 <%# buscardor %>
-<br><h1 style="text-align: center;">Lista de Blogs:</h1><br>
-<div class="search-container tm-row">
-  <div class="row">
-    <div class="col-12">
-      <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
-      <button class="tm-search-button" type="submit">
-        <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
+<%= form_with url: blogs_path(), method: :get , id:"buscador"  do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "searchTerm",
+            placeholder: "Realiza tu busqueda..."
+      %>
+      <span><i class="fa fa-search"></i></span>
+<%end%>
+<%# buscardor %>
+
+<div class="title-blog">
+  <%= link_to "Crear Blog", new_blog_path, class: "btn mb-3" %>
 </div>
 
 <div class="blog-container tm-row pb-5">
@@ -24,26 +22,34 @@
           <div class="card-body">
             <div class="tm-post-link-inner">
               <% if blog.photo.present? %>
-                <%= cl_image_tag blog.photo.key, alt: blog.title, style: 'width: 500px; height: 223px;', class: "img-fluid" if blog.photo.present? %>
+                <%= cl_image_tag blog.photo.key, alt: blog.title, class: "img-blogs" if blog.photo.present? %>
               <% else %>
-                <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", style: 'width: 355px; height: auto;', class: "img-fluid" %>
+                <%= image_tag "blogs/Blog.jpg", alt: "Imagen por defecto", class: "img-blogs" %>
               <% end %>
             </div>
             <hr>
-            <div class="d-flex align-items-center" style="height: 65px;">
+            <div class="d-flex aligns-items-center">
             <h5 class="mb-0 tm-color-primary tm-post-title"><%= blog.title %></h5>
             </div>
-            <p style="height: 160px"><%= blog.comment %></p>
-
-            <% if current_user == blog.user %>
-              <%= link_to "Actualizar", edit_blog_path(blog), class: "btn" %>
-              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn'%>
-            <% end %>
+            <p class=coment><%= blog.comment %></p>
+            <%= link_to "Ver", blog_path(blog), class: "btn mb-3" %>
 
             <hr>
-
-            <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
+            <div class="d-flex align-items-center justify-content-between">
+            <div class="link_to">
+              <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
             <%= blog.user.first_name %> <%= blog.user.last_name %></span>
+            </div>
+            <div class="link_to">
+            <% if current_user == blog.user %>
+              <%= link_to edit_blog_path(blog) do %>
+                <i class="fa-solid fa-pencil text-warning ms-3"></i>
+            <%end%>
+            <%= link_to blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' } do %>
+                <i class="fa-solid fa-trash text-danger ms-3"></i>
+            <%end%>
+            <%end%></div>
+            </div>
 
           </div>
         </div>
