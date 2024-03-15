@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     @user = User.find(@patient.user_id)
     @diagnosis = @patient.diagnosis
 
-    @consultations = @patient.consultations
+    @consultations = @patient.consultations.order(created_at: :asc)
     @doctors = @consultations.map(&:doctor)
 
     if current_user.role
