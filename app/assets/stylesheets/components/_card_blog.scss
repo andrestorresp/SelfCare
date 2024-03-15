@@ -1,68 +1,8 @@
-// .blog-container{
-//   width: 90%;
-//   margin: auto;
-//   border-radius: 3%;
-// }
-
 
  .blogs-border{
  border-radius: 8px;
  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
  }
-
-// .blogs-border:hover {
-//   transform: translateX(5px) translateY(5px);
-//  }
-
-// .card-blog-title {
-//   max-width: 100%; /* Adjust the value for desired width */
-//   white-space: nowrap; /* Prevent wrapping */
-//   overflow: hidden; /* Hide excess content */
-//   text-overflow: ellipsis; /* Add ellipsis (...) for long titles */
-// }
-
-
-// // //
-
-// /*
-
-// TemplateMo 553 Xtra Blog
-
-// https://templatemo.com/tm-553-xtra-blog
-
-// */
-
-// html { overflow-x: hidden; }
-
-// body {
-//     margin: 0;
-//     padding: 0;
-//     font-family: 'Source Sans Pro', sans-serif;
-//     font-size: 19px;
-//     line-height: 2em;
-//     overflow-x: hidden;
-// }
-
-// p, span { color: #999; }
-// hr {
-//     border-top-color: #CCC;
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-// }
-// .form-control::-webkit-input-placeholder { color: #999; }
-// .form-control:-ms-input-placeholder { color: #999; }
-// .form-control::placeholder { color: #999; }
-
-
-
-
-/*
-
-TemplateMo 553 Xtra Blog
-
-https://templatemo.com/tm-553-xtra-blog
-
-*/
 
 html { overflow-x: hidden; }
 
@@ -659,6 +599,25 @@ a:hover figcaption { color: #056767; }
     .tm-person img { max-width: 120px; }
 }
 
+// // // clases de index // // //
+
 .text-center {
   width: 100%;
+}
+
+.img-blogs{
+  width: 500px;
+  height: 223px;
+}
+
+.aligns-items-center{
+  height: 65px;
+}
+
+.coment{
+  height: 160px;
+}
+
+.title-blog{
+  text-align: center;
 }

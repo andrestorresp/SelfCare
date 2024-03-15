@@ -6,10 +6,9 @@ class BlogsController < ApplicationController
 
     @blogs = Blog.all
 
-    # if params[:query].present?
-    #   @blogs = Blog.blog_search(params[:query])
-
-    # end
+    if params[:query].present?
+      @blogs = Blog.search_blog(params[:query])
+    end
   end
 
   def show
