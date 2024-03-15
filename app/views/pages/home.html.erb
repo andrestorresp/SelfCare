@@ -12,10 +12,12 @@
       </button>
       <%= form_with url: buscar_path(), method: :get , id:"buscador"  do %>
       <%= text_field_tag :query,
-            params[:query],
-            class: "searchTerm",
-            placeholder: "Cedula, Pasaporte, DNI..."
-        %>
+          params[:query],
+          class: "searchTerm",
+          placeholder: "Cedula, Pasaporte, DNI...",
+          pattern: "[0-9]*", # Solo permite números
+          title: "Por favor, ingrese solo números..."
+      %>
       <%#= submit_tag class: "searchButton" %>
       <i class="fa fa-search"></i>
     <% end %>

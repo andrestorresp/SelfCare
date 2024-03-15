@@ -6,6 +6,7 @@
   <%= f.input :comment, as: :text, class:"comment"%>
   <%= f.input :photo, as: :file, class:"photo"%>
   <%= f.submit "Guardar", class:"boton"%>
-  <%= cl_image_tag @blog.photo.key, width: 300, height: 200, style: "border-radius: 10px;" %>
+  <%= cl_image_tag @blog.photo.key, width: 300, height: 200, style: "border-radius: 10px;" if @blog.photo.attached? %>
+
   <% end %>
 </div>
