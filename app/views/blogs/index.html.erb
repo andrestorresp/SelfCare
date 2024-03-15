@@ -34,16 +34,19 @@
             </div>
             <p class=coment><%= blog.comment %></p>
 
-            <% if current_user == blog.user %>
-              <%= link_to "Actualizar", edit_blog_path(blog), class: "btn" %>
-              <%= link_to 'Eliminar', blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' }, class: 'btn'%>
-            <% end %>
-
             <hr>
 
             <%= cl_image_tag blog.user.photo.key, class: "avatar rounded-circle" , id: "navbarDropdown"%>
             <%= blog.user.first_name %> <%= blog.user.last_name %></span>
 
+            <% if current_user == blog.user %>
+              <%= link_to edit_blog_path(blog) do %>
+                <i class="fa-solid fa-pencil text-warning ms-3"></i>
+              <%end %>
+              <%= link_to blog_path(blog), data: { turbo_method: :delete, turbo_confirm: '❌ ¿Estás seguro de que deseas eliminar este blog? ❌' } do %>
+                <i class="fa-solid fa-trash text-danger ms-1"></i>
+              <%end %>
+            <% end %>
           </div>
         </div>
       </div>
