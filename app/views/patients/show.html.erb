@@ -54,8 +54,6 @@
                 <% if current_user == consultation.doctor.user %>
                   <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn' %>
                 <% end %>
-
-                <%= link_to 'Editar', edit_consultation_path(consultation), class: 'btn' %>
             </div>
             <% end %>
           </ul>
