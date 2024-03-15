@@ -18,8 +18,12 @@ class PatientsController < ApplicationController
     @user = User.find(@patient.user_id)
     @diagnosis = @patient.diagnosis
 
-    @consultations = @patient.consultations
+    @consultations = @patient.consultations.order(created_at: :asc)
     @doctors = @consultations.map(&:doctor)
+
+    if @user.latitude.present? && @user.longitude.present?
+      @marker = { lat: @user.latitude, lng: @user.longitude }
+    end
 
     if current_user.role
       @additional_consultations = Consultation.where(patient_id: @patient.id)

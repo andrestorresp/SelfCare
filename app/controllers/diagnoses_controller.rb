@@ -8,6 +8,7 @@ class DiagnosesController < ApplicationController
   def create
     @patient = Patient.find(params[:patient_id])
     @diagnosis = Diagnosis.new(diagnoses_params)
+    @diagnosis.patient = @patient
 
     if params[:diagnosis][:diabetes_true] == "1"
       @diagnosis.diabetes = true
@@ -34,7 +35,7 @@ class DiagnosesController < ApplicationController
     end
 
     if @diagnosis.save!
-      redirect_to patient_path(@patient)
+      redirect_to patient_path(params[:patient_id])
     else
       render :new, status: :unprocessable_entity
     end

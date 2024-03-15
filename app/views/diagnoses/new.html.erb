@@ -1,62 +1,10 @@
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const submitButton = document.getElementById("submit_button");
-    function handleCheckBoxPair(trueCheckbox, falseCheckbox) {
-        function checkBothCheckboxes() {
-            if (trueCheckbox.checked || falseCheckbox.checked) {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
-            }
-        }
-        trueCheckbox.addEventListener("change", function() {
-            if (trueCheckbox.checked) {
-                falseCheckbox.checked = false;
-            }
-            checkBothCheckboxes();
-        });
-        falseCheckbox.addEventListener("change", function() {
-            if (falseCheckbox.checked) {
-                trueCheckbox.checked = false;
-            }
-            checkBothCheckboxes();
-        });
-    }
-    const checkBoxPairs = document.querySelectorAll('.form-check-input[type="checkbox"]');
-    for (let i = 0; i < checkBoxPairs.length; i += 2) {
-        const trueCheckbox = checkBoxPairs[i];
-        const falseCheckbox = checkBoxPairs[i + 1];
-        handleCheckBoxPair(trueCheckbox, falseCheckbox);
-    }
-    checkBoxPairs.forEach(function(checkbox) {
-        checkbox.addEventListener("change", function() {
-            let allPairsChecked = true;
-            for (let i = 0; i < checkBoxPairs.length; i += 2) {
-                const trueCheckbox = checkBoxPairs[i];
-                const falseCheckbox = checkBoxPairs[i + 1];
-                if (!trueCheckbox.checked && !falseCheckbox.checked) {
-                    allPairsChecked = false;
-                    break;
-                }
-            }
-            if (allPairsChecked) {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
-            }
-        });
-    });
-
-});
-</script>
-
 <div class="body_in_form">
   <div class="container_in_form body_in">
-    <div class="form-container sign-in-container">
+    <div class="form-container sign-in-container" data-controller="checkbox">
       <%= simple_form_for [@patient, @diagnosis] do |f| %>
         <div class="form-inputs-register">
           <%= f.error_notification %>
-          <table class="table table-bordered mt-3">
+          <table class="table table-bordered mt-5">
             <tr>
               <th>Condición:</th>
               <th>Si</th>
@@ -96,7 +44,7 @@
           <h4>Los datos de este formulario serán de vital impotancia para tu autocuidado</h4>
           <p>Completa esta información y permítenos ofrecerte garantías en tu calidad de vida</p>
           <div class="form-actions text-center">
-            <%= f.button :submit, "Registrar diagnóstico", class: "btn btn-primary", id:"submit_button",  disabled: true %>
+            <%= f.submit  "Registrar diagnóstico",  class: "btn btn-primary", id:"submit_button",  disabled: true %>
       <% end %>
           </div>
         </div>

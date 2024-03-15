@@ -1,14 +1,12 @@
-  <div class="row">
-  <!--!!!!!CUIDADOOOOOO¡¡¡¡¡-->
-  <!--!!!!!ESTO ES DE LA CARTA DEL PERFIL DEL DOCTOR¡¡¡¡¡-->
-  <!--!!!!!LO QUE ESTA EN LA LÍNEA 4 ES LO QUE GENERA EL COLOR DE bg-success EL COLOR VERDE-AZULADO ES ESA INSTRUCCIÓN¡¡¡¡¡-->
-  <div class="col-md-6 d-flex justify-content-center bg-success">
-    <div class="card card_profile p-4" style="text-align: center;">
+<div class="row">
+  <!-- Carta del perfil del doctor -->
+  <div class="col-md-6">
+    <div class="card card_profile p-4">
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: "card-img-top carta-gab profile-image" %>
       <% end %>
-      <h1 class="p-3">Perfil del Doctor</h1>
-      <ul class="list-group list-group-flush">
+      <h1 class="text-center">Perfil del Doctor</h1>
+      <ul class="list-group list-group-flush text-center">
         <li class="list-group-item lista-gab"><strong>Nombre:</strong> <%= @user.first_name %></li>
         <li class="list-group-item lista-gab"><strong>Apellido:</strong> <%= @user.last_name %></li>
         <li class="list-group-item lista-gab"><strong>Edad:</strong> <%= @user.age %></li>
@@ -19,10 +17,21 @@
       </ul>
     </div>
   </div>
-  <!--!!!!!CUIDADOOOOOO¡¡¡¡¡-->
-  <!--!!!!!ESTO ES DONDE ESTARÍA EL MAPA DEL DOCTOR¡¡¡¡¡-->
-  <!--!!!!!LO QUE ESTA EN LA LÍNEA 21 ES LO QUE GENERA EL COLOR DE bg-warning EL COLOR NARANJA ES ESA INSTRUCCIÓN¡¡¡¡¡-->
-  <div class="col-md-6 ml-3 bg-warning">
-    <p>Algo aqui del mapa</p>
+  <!-- Mapa del doctor -->
+  <div class="col-md-5  mt-5">
+    <div class="card">
+      <div class="card-body">
+        <div style="width: 100%; height: 500px;"
+            data-controller="map"
+            data-map-markers-value="<%= [@marker].compact.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  </div>
+
+
 </div>
