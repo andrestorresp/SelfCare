@@ -42,3 +42,9 @@ ul.navbar-nav.me-auto {
   align-items: center;
   /* border-radius: 7%; */
 }
+
+.dropdown-item:hover {
+  /* Agrega aquí los estilos que deseas aplicar cuando se hace hover */
+  background-color: green;
+  color: white;
+}

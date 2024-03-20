@@ -2,8 +2,8 @@
   <div class="text-center">
     <% if user_signed_in? && current_user.role == false  %>
       <h1>Bienvenidos <br>a SELFCARE</h1>
-      <p>El cuidado de tu historial medico <br>en tus manos.</p>
-      <button class="btn">Buscar medicos</button>
+      <p>El cuidado de tu historial médico <br>en tus manos.</p>
+       <%= link_to "Buscar doctores",  doctors_path , class: "btn" %>
     <% elsif user_signed_in? && current_user.role == true   %>
       <h2 id="titulodoc">Ingrese datos del Px</h2>
       <%= form_with url: buscar_path(), method: :get , id:"buscador"  do %>
@@ -19,7 +19,7 @@
           <i class="fa fa-search"></i>
         </div>
       <% end %>
-      <p>Se debera ingresar UN dato numerico de identificación </p>
+      <p>Se deberá ingresar un dato numérico de identificación </p>
     <% else %>
       <h1>SELFCARE</h1>
       <p>El cuidado de tu historial medico <br>en tus manos.</p>
@@ -37,7 +37,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Recetas</h2>
-        <p class="card__text">"El desayuno es la comidmass importante del dia", es la frase mas escuchada... visita nuestro blo</p>
+        <p class="card__text">"El desayuno es la comida más importante del dia", es la frase mas escuchada... visita nuestro blog</p>
     </div>
     </div>
     <div class="card card-item-02">
@@ -46,7 +46,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Ejercicios</h2>
-        <p class="card__text">El ejercicio y la actividad física son buenos para casi todas las personas, incluyendo las personas mayores. Independientemente de su salud y sus capacidades físicas, puede beneficiarse haciendo actividad física regularmente</p>
+        <p class="card__text text-justify">El ejercicio y la actividad física son buenos para casi todas las personas, incluyendo las personas mayores. Independientemente de su salud y sus capacidades físicas, puede beneficiarse haciendo actividad física regularmente</p>
     </div>
     </div>
     <div class="card card-item-03">
@@ -55,7 +55,7 @@
     </div>
     <div class="card__content">
         <h2 class="card__title">Doctores</h2>
-        <p class="card__text">Los doctores desempeñan un papel fundamental en la atención médica y el bienestar de las personas, Los doctores evalúan los síntomas, realizan exámenes y pruebas, y utilizan su experiencia para diagnosticar enfermedades y afecciones. Luego, prescriben tratamientos adecuados, como medicamentos, terapias o cirugías.</p>
+        <p class="card__text text-justify">Los doctores desempeñan un papel fundamental en la atención médica y el bienestar de las personas, Los doctores evalúan los síntomas, realizan exámenes y pruebas, y utilizan su experiencia para diagnosticar enfermedades y afecciones. Luego, prescriben tratamientos adecuados, como medicamentos, terapias o cirugías.</p>
     </div>
     </div>
   </div>
@@ -69,8 +69,8 @@
     </div>
   <div class="col text-col">
     <h1>Sobre nosotros</h1>
-    <p>Selfcare es la plataforma líder en soluciones digitales para la gestión de historiales médicos. Nuestra misión es transformar la atención médica al proporcionar a los profesionales de la salud y a los pacientes una herramienta integral y segura para acceder, registrar y analizar información clínica de manera eficiente.</p>
-    <p>Nació de la pasión por la innovación y la mejora continua en el campo de la salud. Fundada en el año 2024 por un equipo multidisciplinario de médicos, ingenieros y diseñadores, nuestra empresa se ha dedicado a desarrollar una solución integral que simplifique la gestión de historiales médicos</p>
+    <p class="text-justify">Selfcare es la plataforma líder en soluciones digitales para la gestión de historiales médicos. Nuestra misión es transformar la atención médica al proporcionar a los profesionales de la salud y a los pacientes una herramienta integral y segura para acceder, registrar y analizar información clínica de manera eficiente.</p>
+    <p class="text-justify">Nació de la pasión por la innovación y la mejora continua en el campo de la salud. Fundada en el año 2024 por un equipo multidisciplinario de médicos, ingenieros y diseñadores, nuestra empresa se ha dedicado a desarrollar una solución integral que simplifique la gestión de historiales médicos</p>
   </div>
   </div>
 </section>
@@ -82,9 +82,9 @@
       <img src="https://www.segurosmcr.com/wp-content/uploads/2021/08/Seguros-Mercantil-v2.png" class="img-fluid" alt="About Us">
     </div>
   <div class="col text-col" id="mercantiltexto">
-    <h2>Conoces los beneficios <br>de Mercantil seguros?</h2>
-    <p>Protege a tus seres queridos cuando ya no estés. Los beneficiarios que elijas recibirán el monto de la suma asegurada si falleces de forma accidental o natural. También te servirá de apoyo en caso de resultar incapacitado</p>
-    <p>Mercantil Seguros es hoy líder en Venezuela. Nuestro propósito es entender las necesidades de los venezolanos, y enfocarnos en diseñar productos para ellos, con el respaldo de un equipo altamente profesional y comprometido, e invirtiendo en la transformación digital, garantizando la calidad del servicio a nuestros clientes.</p>
+    <h2>¿Conoces los beneficios <br>de Mercantil seguros?</h2>
+    <p class="text-justify">Protege a tus seres queridos cuando ya no estés. Los beneficiarios que elijas recibirán el monto de la suma asegurada si falleces de forma accidental o natural. También te servirá de apoyo en caso de resultar incapacitado</p>
+    <p class="text-justify">Mercantil Seguros es hoy líder en Venezuela. Nuestro propósito es entender las necesidades de los venezolanos, y enfocarnos en diseñar productos para ellos, con el respaldo de un equipo altamente profesional y comprometido, e invirtiendo en la transformación digital, garantizando la calidad del servicio a nuestros clientes.</p>
   </div>
   </div>
 </section>
@@ -92,9 +92,9 @@
 <!--seccion de sabias que-->
 <section id="sabias" class="alt">
   <div class="col text-col">
-    <h1>Sabias que...</h1>
-    <p>Las muertes registradas en venezuela por negligencia médica es en promedio de 699 personas al años?</p>
-    <p>un informe alarmante, se ha revelado que las muertes por negligencia médica han experimentado un preocupante aumento en Venezuela. Durante el año 2022, 699 personas perdieron la vida debido a errores médicos y mala praxis1. Estos trágicos sucesos han dejado a las familias devastadas y han puesto de manifiesto la necesidad urgente de abordar este problema en nuestro país.</p>
-    <p> Estos lamentables sucesos han puesto de manifiesto la necesidad urgente de abordar la seguridad y la calidad en la atención médica en todo el mundo. Es fundamental que los sistemas de salud, los profesionales médicos y las autoridades trabajen en conjunto para prevenir errores médicos y garantizar la seguridad de los pacientes. La transparencia, la formación continua y la implementación de protocolos rigurosos son pasos cruciales para reducir la incidencia de mala praxis y proteger la vida de las personas</p>
+    <h1>¿Sabías qué?</h1>
+    <p class="text-justify">Las muertes registradas en venezuela por negligencia médica es en promedio de 700 personas al año.</p>
+    <p class="text-justify">Un informe alarmante, ha revelado que las muertes por negligencia médica han experimentado un preocupante aumento en Venezuela. Durante el año 2022, aproximadamente 700 personas perdieron la vida debido a errores médicos y mala praxis. Estos trágicos sucesos han dejado a las familias devastadas y han puesto de manifiesto la necesidad urgente de abordar este problema en nuestro país.</p>
+    <p class="text-justify"> Estos lamentables sucesos han puesto de manifiesto la necesidad urgente de abordar la seguridad y la calidad en la atención médica en todo el mundo. Es fundamental que los sistemas de salud, los profesionales médicos y las autoridades trabajen en conjunto para prevenir errores médicos y garantizar la seguridad de los pacientes. La transparencia, la formación continua y la implementación de protocolos rigurosos son pasos cruciales para reducir la incidencia de mala praxis y proteger la vida de las personas.</p>
   </div>
 </section>

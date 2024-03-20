@@ -1,9 +1,8 @@
 <div class="container">
-  <div>
-    <div class="card-body container pb-3 mt-3">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="card-body pb-3 mt-3">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "registro" }) do |f| %>
         <%= f.error_notification %>
-        <h2 class="text-center mt-3">¡Registrarse ahora!</h2>
+        <h1 class="text-center mt-3" id="titleRegister">¡Registrarse ahora!</h1>
         <div class="form-inputs-registration">
           <%= f.input :first_name,
             label: "Nombre",
@@ -62,5 +61,4 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>

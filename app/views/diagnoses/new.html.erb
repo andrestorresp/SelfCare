@@ -1,10 +1,10 @@
-<div class="body_in_form">
+<div class="body_in_form" id="diagnosisForm">
   <div class="container_in_form body_in">
     <div class="form-container sign-in-container" data-controller="checkbox">
       <%= simple_form_for [@patient, @diagnosis] do |f| %>
         <div class="form-inputs-register">
           <%= f.error_notification %>
-          <table class="table table-bordered mt-5">
+          <table class="table table-bordered">
             <tr>
               <th>Condición:</th>
               <th>Si</th>
@@ -34,17 +34,17 @@
           <%= f.label :other_diseases, label: "Otras enfermedades", class:"form-control" %>
           <%= f.text_area :other_diseases %>
           <%= f.label :other_details, label: "Otros detalles ", class:"form-control"  %>
-          <%= f.text_area :other_details, class:"mb-5" %>
+          <%= f.text_area :other_details %>
         </div>
     </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <h1 class="pb-5">Registro de Ficha médica</h1>
+          <h1 class="pb-5" id="titleRegister">Registro de Ficha médica</h1>
           <h4>Los datos de este formulario serán de vital impotancia para tu autocuidado</h4>
           <p>Completa esta información y permítenos ofrecerte garantías en tu calidad de vida</p>
           <div class="form-actions text-center">
-            <%= f.submit  "Registrar diagnóstico",  class: "btn btn-primary", id:"submit_button",  disabled: true %>
+            <%= f.submit  "Registrar diagnóstico",  class: "btn", id:"submit_button",  disabled: true %>
       <% end %>
           </div>
         </div>

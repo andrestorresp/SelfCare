@@ -58,3 +58,20 @@
 .tarjeta-perfil{
   padding: 0.5rem !important;
 }
+
+.registro{
+  background-color: #1e593e;
+  background-image: linear-gradient(19deg, #AABFB9 0%, #1e593e 100%);
+  border-radius: 15px;
+}
+
+#titleRegister{
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
+}
+
+#diagnosisForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
