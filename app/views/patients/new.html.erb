@@ -4,7 +4,7 @@
       <h2>Registra tu antecedente</h2>
     </div>
     <div class="card-body container pb-3">
-      <%= simple_form_for(@patient) do |f| %>
+      <%= simple_form_for [@patient,@diagnosis] do |f| %>
         <div class="form-inputs">
           <%= f.error_notification %>
           <%= f.label :alergias %>

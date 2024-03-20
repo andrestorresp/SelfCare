@@ -7,6 +7,9 @@ class BlogsController < ApplicationController
 
     if params[:query].present?
       @blogs = Blog.search_blog(params[:query])
+      unless @blogs.present?
+        @blogs = Blog.all       
+      end
     end
   end
 

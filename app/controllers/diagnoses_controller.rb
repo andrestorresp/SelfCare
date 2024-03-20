@@ -1,8 +1,8 @@
 class DiagnosesController < ApplicationController
 
   def new
-    @diagnosis = Diagnosis.new
     @patient = Patient.find(params[:patient_id])
+    @diagnosis = Diagnosis.new
   end
 
   def create
