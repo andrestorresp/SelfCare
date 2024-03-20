@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container vh-100">
   <div>
     <div class="card-body container pb-3">
-      <%= simple_form_for(@doctor) do |f| %>
-      <h1>Completa los siguientes datos:</h1>
+      <%= simple_form_for(@doctor, html: { class: "registro mt-5" }) do |f| %>
+        <h1 id="titleRegister">Completa los siguientes datos:</h1>
         <div class="form-inputs">
            <%= f.input :specialty,
                 label: "Especialidad",
@@ -15,7 +15,8 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "sap" } %>
-          <%= f.submit %>
+
+            <%= f.button :submit, class: "btn", value: "Crear doctor" %>
         </div>
       <% end %>
     </div>
