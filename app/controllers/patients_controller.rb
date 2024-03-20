@@ -33,8 +33,9 @@ class PatientsController < ApplicationController
 
   def buscar_px
     if params[:query].present?
-      @patient = User.find_by(dni: params[:query]) # Esto retorna true si lo encuentra
-      if @patient
+      @user = User.find_by(dni: params[:query]) 
+      if @user
+        @patient = @user.patient.id
         redirect_to patient_path(@patient) 
       else
         redirect_to root_path, alert: "El paciente no existe"
