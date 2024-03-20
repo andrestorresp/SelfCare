@@ -11,13 +11,15 @@
         <span>o utiliza una cuenta</span>
         <div class="form-inputs">
           <%= f.input :email,
+                      label: "Correo electrónico",
                       required: false,
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
           <%= f.input :password,
+                      label: "Contraseña",
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?%>
+          <%= f.input :remember_me, label: "Recuérdame", as: :boolean if devise_mapping.rememberable?%>
         </div>
         <a href="#">olvidaste la contraseña?</a>
         <div class="">
@@ -28,8 +30,8 @@
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <h1 id="titulo-alt">Bienvenido!</h1>
-          <p>Registrate con nosotros y comienza el cuidado de tu hisotial medico</p>
+          <h1 id="titulo-alt">¡Bienvenido!</h1>
+          <p>Regístrate con nosotros y comienza el cuidado de tu hisotial medico</p>
            <%= link_to "Registrarse", new_user_registration_path, class:"btn"%>
         </div>
       </div>

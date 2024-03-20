@@ -1,10 +1,10 @@
 <body id="doctors_view">
-  <h2 class="text-white">Especialistas de Selfcare:</h2>
+  <h1 class="text-center">Especialistas de Selfcare:</h1>
   <div class="wrapper_doctor">
     <div class="row">
     <% @doctors.each do |user| %>
       <div class="col-md-6 col-lg-3">
-        <div class="card_doctor">
+        <div class="card_doctor ms-5">
         <%= image_tag user.photo, class:"card-img-top" if user.photo.attached?  %>
           <div class="card_doctor-body">
             <h5 class="card_doctor-title"><%= user.first_name %> <%= user.last_name  %></h5>
@@ -31,11 +31,11 @@
     </div>
     <div class="separacion"></div>
     <div class="info-area ps-3">
-      <h3 style="color: #F2BF5E">Contactanos:</h3>
+      <h3 style="color: #F2BF5E">Contáctanos:</h3>
         <P><i class="fa-solid fa-phone"></i> LLAMANOS</P>
         <P> 0424-2417842 </P>
         <P><i class="fa-solid fa-envelope"></i> CONSULTANOS </P>
-        </P>selfcare.atencion@gmail.com</P>
+        <P>selfcare.atencion@gmail.com</P>
         <P><i class="fa-solid fa-clock"></i> HORARIO DE TRABAJO </P>
         <P>Lun - Vier | 8:00 a.m - 5:00 p.m</P>
         <%# <p><div class="footer-links">
